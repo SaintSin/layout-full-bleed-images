@@ -1,123 +1,376 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { Image } from "astro:assets";
+
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import image1 from "@images/placeholders/cat_1.jpg";
+import image2 from "@images/placeholders/cat_2.jpg";
+import image3 from "@images/placeholders/cat_3.jpg";
+import image4 from "@images/placeholders/cat_4.jpg";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
-				d="M167.19 364.254C83.4786 364.254 0 404.819 0 404.819C0 404.819 141.781 19.4876 142.087 18.7291C146.434 7.33701 153.027 0 162.289 0H332.441C341.703 0 348.574 7.33701 352.643 18.7291C352.92 19.5022 494.716 404.819 494.716 404.819C494.716 404.819 426.67 364.254 327.525 364.254L264.41 169.408C262.047 159.985 255.147 153.581 247.358 153.581C239.569 153.581 232.669 159.985 230.306 169.408L167.19 364.254ZM160.869 530.172C160.877 530.18 160.885 530.187 160.894 530.195L160.867 530.181C160.868 530.178 160.868 530.175 160.869 530.172ZM136.218 411.348C124.476 450.467 132.698 504.458 160.869 530.172C160.997 529.696 161.125 529.242 161.248 528.804C161.502 527.907 161.737 527.073 161.917 526.233C165.446 509.895 178.754 499.52 195.577 500.01C211.969 500.487 220.67 508.765 223.202 527.254C224.141 534.12 224.23 541.131 224.319 548.105C224.328 548.834 224.337 549.563 224.347 550.291C224.563 566.098 228.657 580.707 237.264 593.914C245.413 606.426 256.108 615.943 270.749 622.478C270.593 621.952 270.463 621.508 270.35 621.126C270.045 620.086 269.872 619.499 269.685 618.911C258.909 585.935 266.668 563.266 295.344 543.933C298.254 541.971 301.187 540.041 304.12 538.112C310.591 533.854 317.059 529.599 323.279 525.007C345.88 508.329 360.09 486.327 363.431 457.844C364.805 446.148 363.781 434.657 359.848 423.275C358.176 424.287 356.587 425.295 355.042 426.275C351.744 428.366 348.647 430.33 345.382 431.934C303.466 452.507 259.152 455.053 214.03 448.245C184.802 443.834 156.584 436.019 136.218 411.348Z"
-				fill="url(#paint0_linear_1805_24383)"></path>
-			<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stop-opacity="0.9"></stop>
-					<stop offset="1" stop-opacity="0.2"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+  <section class="page">
+    <h1>Full Bleed Images Two Column</h1>
+    <p class="txt-center">
+      Images are resized to cover the height of the parent element.<br /> Based on
+      <a href="https://www.youtube.com/watch?v=Ivk8Blw2VTI" target="_blank"
+        >this technique by Kevin Powell</a
+      >.
+    </p>
+  </section>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
+<section class="full-width-split-screen">
+  <div class="primary">
+    <h2>A Picture 1</h2><p>
+      Sunt nisi aute pariatur labore tempor magna dolore eu. Cillum pariatur
+      anim commodo sint exercitation sint velit. Veniam dolore magna enim velit
+      aute aute dolor irure tempor.
+    </p>
+    <p>
+      Aliqua deserunt laboris eiusmod et id occaecat reprehenderit adipisicing
+      enim amet incididunt commodo veniam nostrud. Irure labore laborum anim
+      velit ullamco. In irure esse Lorem dolore et.
+    </p>
+    <p>
+      Nulla non minim sunt anim tempor adipisicing nisi anim incididunt enim.
+      Deserunt est qui ex esse qui laborum est dolore cillum. Pariatur enim
+      irure exercitation magna cillum id exercitation nisi deserunt do consequat
+      quis voluptate. Commodo ut ad pariatur duis sunt velit veniam minim.
+    </p>
+  </div>
+  <Image
+    src={image1}
+    format={"avif"}
+    widths={[400, 800, 1200]}
+    sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
+    alt="Cat lying down staring at camera"
+    loading={"eager"}
+  />
+</section>
+
+<section class="full-width-split-screen">
+  <Image
+    src={image2}
+    format={"avif"}
+    widths={[400, 800, 1200]}
+    sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
+    alt="A cute kitten"
+    loading={"eager"}
+  />
+  <div class="secondary">
+    <h2>A Picture 2</h2>
+    <p>
+      Et esse laborum minim occaecat minim dolor nulla elit officia ut ea id.
+      Lorem deserunt officia nulla dolor ullamco in Lorem Lorem eu. Ad sunt do
+      laboris id exercitation enim. Cupidatat nisi ad incididunt ullamco
+      consectetur est aliquip mollit tempor ex Lorem. Veniam ad mollit veniam
+      esse officia esse commodo elit aute nisi enim veniam laboris sit. Enim
+      enim officia Lorem ipsum est qui incididunt incididunt sit in eiusmod.
+    </p>
+    <p>
+      Nulla non minim sunt anim tempor adipisicing nisi anim incididunt enim.
+      Deserunt est qui ex esse qui laborum est dolore cillum. Pariatur enim
+      irure exercitation magna cillum id exercitation nisi deserunt do consequat
+      quis voluptate. Commodo ut ad pariatur duis sunt velit veniam minim.
+    </p>
+
+    <p>
+      Do sunt ex do veniam consectetur enim. Ex ut irure excepteur dolor duis et
+      mollit amet proident velit cupidatat proident in eiusmod. Aliqua aliquip
+      mollit sit nisi amet reprehenderit Lorem eiusmod magna occaecat magna.
+      Duis amet aliquip dolore dolore voluptate consectetur. Deserunt commodo do
+      laboris elit culpa sint ut. Deserunt reprehenderit ex pariatur deserunt
+      aute laborum reprehenderit aliquip aliqua excepteur ut enim nisi.
+    </p>
+  </div>
+</section>
+
+<section class="full-width-split-screen">
+  <div class="tertiary">
+    <h2>A Picture 3</h2><p>
+      Elit dolor voluptate cupidatat labore qui adipisicing cillum. Proident
+      dolore ad magna anim nulla aliqua veniam. Deserunt deserunt eiusmod in do
+      labore dolore anim. Ea esse mollit est in dolor qui cillum amet veniam
+      sunt excepteur ad id. Deserunt pariatur ullamco non est et ut dolore. Esse
+      eiusmod anim velit reprehenderit occaecat incididunt dolor laboris.
+    </p>
+    <p>
+      Nulla non minim sunt anim tempor adipisicing nisi anim incididunt enim.
+      Deserunt est qui ex esse qui laborum est dolore cillum. Pariatur enim
+      irure exercitation magna cillum id exercitation nisi deserunt do consequat
+      quis voluptate. Commodo ut ad pariatur duis sunt velit veniam minim.
+    </p>
+    <p>
+      Nulla non minim sunt anim tempor adipisicing nisi anim incididunt enim.
+      Deserunt est qui ex esse qui laborum est dolore cillum. Pariatur enim
+      irure exercitation magna cillum id exercitation nisi deserunt do consequat
+      quis voluptate. Commodo ut ad pariatur duis sunt velit veniam minim.
+    </p>
+  </div>
+  <Image
+    src={image3}
+    format={"avif"}
+    widths={[400, 800, 1200]}
+    sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
+    alt="Playful cats"
+  />
+</section>
+
+<section class="full-width-split-screen">
+  <Image
+    src={image4}
+    format={"avif"}
+    widths={[400, 800, 1200]}
+    sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
+    alt="Ginger kitten in grassy field"
+  />
+  <div class="quaternary">
+    <h2>A Picture 4</h2>
+    <p>
+      Et esse laborum minim occaecat minim dolor nulla elit officia ut ea id.
+      Lorem deserunt officia nulla dolor ullamco in Lorem Lorem eu. Ad sunt do
+      laboris id exercitation enim. Cupidatat nisi ad incididunt ullamco
+      consectetur est aliquip mollit tempor ex Lorem. Veniam ad mollit veniam
+      esse officia esse commodo elit aute nisi enim veniam laboris sit. Enim
+      enim officia Lorem ipsum est qui incididunt incididunt sit in eiusmod.
+    </p>
+    <p>
+      Nulla non minim sunt anim tempor adipisicing nisi anim incididunt enim.
+      Deserunt est qui ex esse qui laborum est dolore cillum. Pariatur enim
+      irure exercitation magna cillum id exercitation nisi deserunt do consequat
+      quis voluptate. Commodo ut ad pariatur duis sunt velit veniam minim.
+    </p>
+
+    <p>
+      Do sunt ex do veniam consectetur enim. Ex ut irure excepteur dolor duis et
+      mollit amet proident velit cupidatat proident in eiusmod. Aliqua aliquip
+      mollit sit nisi amet reprehenderit Lorem eiusmod magna occaecat magna.
+      Duis amet aliquip dolore dolore voluptate consectetur. Deserunt commodo do
+      laboris elit culpa sint ut. Deserunt reprehenderit ex pariatur deserunt
+      aute laborum reprehenderit aliquip aliqua excepteur ut enim nisi.
+    </p>
+  </div>
+</section>
+<section class="full-width-split-screen">
+  <Image
+    src={image3}
+    format={"avif"}
+    widths={[400, 800, 1200]}
+    sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
+    alt="Mice run away from this duo"
+  />
+  <Image
+    src={image4}
+    format={"avif"}
+    widths={[400, 800, 1200]}
+    sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
+    alt="Ginger kitten in grassy field"
+  />
+</section>
+<section class="full-width-split-screen">
+  <div class="quaternary">
+    <h3>First</h3>
+    <p>
+      Dolor laborum eu ullamco fugiat labore eiusmod qui excepteur minim aute
+      laboris dolore sit labore. Mollit pariatur nisi tempor est minim ipsum.
+      Eiusmod veniam nostrud veniam dolore. Ex fugiat deserunt minim aliquip
+      commodo et deserunt labore. Nisi pariatur culpa minim id voluptate aute
+      mollit tempor magna.
+    </p>
+  </div>
+  <div class="primary">
+    <h3>Second</h3>
+    <p>
+      Dolor laborum eu ullamco fugiat labore eiusmod qui excepteur minim aute
+      laboris dolore sit labore. Mollit pariatur nisi tempor est minim ipsum.
+      Eiusmod veniam nostrud veniam dolore. Ex fugiat deserunt minim aliquip
+      commodo et deserunt labore. Nisi pariatur culpa minim id voluptate aute
+      mollit tempor magna.
+    </p>
+  </div>
+</section>
+
+<section class="wrapper">
+  <p class="lede">
+    Officia laborum exercitation aliquip adipisicing nisi laborum eiusmod et
+    nulla. Adipisicing occaecat exercitation magna sunt reprehenderit Lorem.
+    Consequat ea et ex commodo consectetur eu sunt laboris Lorem dolor. Fugiat
+    dolore sint et laboris in elit.
+  </p>
+  <hr />
+  <p>
+    Non aliqua ea proident cillum officia est dolor adipisicing consequat sint
+    nostrud qui cillum. Sit sit ullamco esse ad do mollit enim labore. Fugiat
+    laboris nostrud ea irure culpa est nostrud consequat nisi ullamco. Aliquip
+    duis aliqua pariatur ad aute culpa occaecat mollit elit pariatur sit commodo
+    elit quis. Do et velit aliqua reprehenderit dolore do ea. Et amet mollit
+    culpa excepteur nisi in do. Nisi dolore officia labore ullamco.
+  </p>
+  <style>
+    :root {
+      --wrapper-padding-inline: 2.5rem;
+      --wrapper-max-width: 110ch;
+      --section-padding-block: 2.5rem;
+      --paragraph-max-width: 69ch;
+    }
+    * {
+      /* outline: solid 1px red; */
+      font-family: var(--font-sans);
+      line-height: var(--font-lineheight-3);
+    }
+    h1 {
+      font-size: 4rem;
+      color: var(--teal-10);
+    }
+    p {
+      margin-top: var(--space-s);
+      font-size: var(--step-0);
+      color: var(--gray-11);
+      max-width: var(--paragraph-max-width);
+    }
+    .lede {
+      font-size: var(--step-1);
+      font-weight: 600;
+    }
+    .primary {
+      background: var(--teal-1);
+    }
+    .secondary {
+      background: var(--lime-2);
+    }
+    .tertiary {
+      background: var(--teal-4);
+    }
+    .quaternary {
+      background: var(--lime-4);
+    }
+    .page {
+      display: grid;
+      height: 100vh;
+      background: var(--lime-2);
+      align-content: center;
+      text-align: center;
+    }
+    .wrapper {
+      max-width: var(--wrapper-max-width);
+      margin-inline: auto;
+      padding-inline: var(--wrapper-padding-inline);
+    }
+    .txt-center {
+      text-align: center;
+      display: inline-block;
+      margin-inline: auto;
+    }
+  </style>
+
+  <style is:global>
+    /* Two Column Layout */
+    /* In Astro this must be set as a global style, otherwise it doesn't compile correctly */
+
+    .full-width-split-screen {
+      padding-block: 0;
+    }
+    .full-width-split-screen img {
+      /* outline: 2px solid red; */
+      object-fit: cover;
+    }
+
+    .full-width-split-screen > :not(img) {
+      padding-inline: var(--wrapper-padding-inline);
+      padding-block: var(--wrapper-padding-inline);
+    }
+    @media (min-width: 600px) {
+      .full-width-split-screen {
+        display: grid;
+        grid-template-columns:
+          minmax(var(--wrapper-padding-inline), 1fr)
+          minmax(0, calc(var(--wrapper-max-width) / 2))
+          minmax(0, calc(var(--wrapper-max-width) / 2))
+          minmax(var(--wrapper-padding-inline), 1fr);
+        position: relative;
+      }
+      .full-width-split-screen > img:first-child {
+        grid-column: 1 / 3;
+      }
+      .full-width-split-screen > img:last-child {
+        grid-column: 3 / -1;
+      }
+      .full-width-split-screen > :not(img) {
+        display: grid;
+        align-content: center;
+        justify-content: start;
+      }
+      .full-width-split-screen > :not(img):first-child {
+        grid-column: 2 / 3;
+      }
+      .full-width-split-screen > :not(img):last-child {
+        grid-column: 3 / 4;
+      }
+      .full-width-split-screen > :not(img)::before {
+        content: " ";
+        position: absolute;
+        inset: 0;
+        background: inherit;
+      }
+      .full-width-split-screen > :not(img):first-child::before {
+        grid-column: 1 / 2;
+      }
+      .full-width-split-screen > :not(img):last-child::before {
+        grid-column: 4 / 5;
+      }
+    }
+  </style>
+
+  <script>
+    const min_screen_width = 600;
+
+    function handleImages() {
+      console.log("Function Called");
+
+      if (window.innerWidth > min_screen_width) {
+        const fullWidthSplitScreens = document.querySelectorAll(
+          ".full-width-split-screen"
+        );
+        //   console.log("fw");
+
+        fullWidthSplitScreens.forEach((element) => {
+          const imgElement = element.querySelector(
+            "img"
+          ) as HTMLImageElement | null;
+          // console.log("ie");
+          if (imgElement) {
+            console.log("preLis", element.clientHeight);
+            imgElement.style.height = `${element.clientHeight}px`;
+
+            imgElement.addEventListener("load", () => {
+              imgElement.style.height = `${element.clientHeight}px`;
+              console.log("Image loaded and resized!");
+            });
+          }
+        });
+      }
+
+      // Remove height styling if window goes below minimum width
+      if (window.innerWidth <= min_screen_width) {
+        //   console.log("Remove heights");
+
+        const fullWidthSplitScreens = document.querySelectorAll(
+          ".full-width-split-screen"
+        );
+        fullWidthSplitScreens.forEach((element) => {
+          const imgElement = element.querySelector(
+            "img"
+          ) as HTMLImageElement | null;
+          if (imgElement) {
+            //   console.log("Remove height style");
+            imgElement.style.height = "";
+          }
+        });
+      }
+    }
+    document.addEventListener("astro:page-load", handleImages);
+    window.addEventListener("resize", handleImages);
+  </script>
+</section>
