@@ -31,8 +31,7 @@
     }
     .full-width-split-screen > :not(img) {
         display: grid;
-        align-content: center;
-        justify-content: start;
+        align-content: start;
     }
     .full-width-split-screen > :not(img):first-child {
         grid-column: 2 / 3;
