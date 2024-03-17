@@ -55,6 +55,7 @@ import image4 from "@images/placeholders/cat_4.jpg";
     src={image2}
     format={"avif"}
     widths={[400, 800, 1200]}
+    quality={40}
     sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
     alt="A cute kitten"
     loading={"eager"}
@@ -208,169 +209,166 @@ import image4 from "@images/placeholders/cat_4.jpg";
     elit quis. Do et velit aliqua reprehenderit dolore do ea. Et amet mollit
     culpa excepteur nisi in do. Nisi dolore officia labore ullamco.
   </p>
-  <style>
-    :root {
-      --wrapper-padding-inline: 2.5rem;
-      --wrapper-max-width: 110ch;
-      --section-padding-block: 2.5rem;
-      --paragraph-max-width: 69ch;
-    }
-    * {
-      /* outline: solid 1px red; */
-      font-family: var(--font-sans);
-      line-height: var(--font-lineheight-3);
-    }
-    h1 {
-      font-size: 4rem;
-      color: var(--teal-10);
-    }
-    p {
-      margin-top: var(--space-s);
-      font-size: var(--step-0);
-      color: var(--gray-11);
-      max-width: var(--paragraph-max-width);
-    }
-    .lede {
-      font-size: var(--step-1);
-      font-weight: 600;
-    }
-    .primary {
-      background: var(--teal-1);
-    }
-    .secondary {
-      background: var(--lime-2);
-    }
-    .tertiary {
-      background: var(--teal-4);
-    }
-    .quaternary {
-      background: var(--lime-4);
-    }
-    .page {
-      display: grid;
-      height: 100vh;
-      background: var(--lime-2);
-      align-content: center;
-      text-align: center;
-    }
-    .wrapper {
-      max-width: var(--wrapper-max-width);
-      margin-inline: auto;
-      padding-inline: var(--wrapper-padding-inline);
-    }
-    .txt-center {
-      text-align: center;
-      display: inline-block;
-      margin-inline: auto;
-    }
-  </style>
-
-  <style is:global>
-    /* Two Column Layout */
-    /* In Astro this must be set as a global style, otherwise it doesn't compile correctly */
-
-    .full-width-split-screen {
-      padding-block: 0;
-    }
-    .full-width-split-screen img {
-      /* outline: 2px solid red; */
-      object-fit: cover;
-    }
-
-    .full-width-split-screen > :not(img) {
-      padding-inline: var(--wrapper-padding-inline);
-      padding-block: var(--wrapper-padding-inline);
-    }
-    @media (min-width: 600px) {
-      .full-width-split-screen {
-        display: grid;
-        grid-template-columns:
-          minmax(var(--wrapper-padding-inline), 1fr)
-          minmax(0, calc(var(--wrapper-max-width) / 2))
-          minmax(0, calc(var(--wrapper-max-width) / 2))
-          minmax(var(--wrapper-padding-inline), 1fr);
-        position: relative;
-      }
-      .full-width-split-screen > img:first-child {
-        grid-column: 1 / 3;
-      }
-      .full-width-split-screen > img:last-child {
-        grid-column: 3 / -1;
-      }
-      .full-width-split-screen > :not(img) {
-        display: grid;
-        align-content: center;
-        justify-content: start;
-      }
-      .full-width-split-screen > :not(img):first-child {
-        grid-column: 2 / 3;
-      }
-      .full-width-split-screen > :not(img):last-child {
-        grid-column: 3 / 4;
-      }
-      .full-width-split-screen > :not(img)::before {
-        content: " ";
-        position: absolute;
-        inset: 0;
-        background: inherit;
-      }
-      .full-width-split-screen > :not(img):first-child::before {
-        grid-column: 1 / 2;
-      }
-      .full-width-split-screen > :not(img):last-child::before {
-        grid-column: 4 / 5;
-      }
-    }
-  </style>
-
-  <script>
-    const min_screen_width = 600;
-
-    function handleImages() {
-      console.log("Function Called");
-
-      if (window.innerWidth > min_screen_width) {
-        const fullWidthSplitScreens = document.querySelectorAll(
-          ".full-width-split-screen"
-        );
-        //   console.log("fw");
-
-        fullWidthSplitScreens.forEach((element) => {
-          const imgElement = element.querySelector(
-            "img"
-          ) as HTMLImageElement | null;
-          // console.log("ie");
-          if (imgElement) {
-            console.log("preLis", element.clientHeight);
-            imgElement.style.height = `${element.clientHeight}px`;
-
-            imgElement.addEventListener("load", () => {
-              imgElement.style.height = `${element.clientHeight}px`;
-              console.log("Image loaded and resized!");
-            });
-          }
-        });
-      }
-
-      // Remove height styling if window goes below minimum width
-      if (window.innerWidth <= min_screen_width) {
-        //   console.log("Remove heights");
-
-        const fullWidthSplitScreens = document.querySelectorAll(
-          ".full-width-split-screen"
-        );
-        fullWidthSplitScreens.forEach((element) => {
-          const imgElement = element.querySelector(
-            "img"
-          ) as HTMLImageElement | null;
-          if (imgElement) {
-            //   console.log("Remove height style");
-            imgElement.style.height = "";
-          }
-        });
-      }
-    }
-    document.addEventListener("astro:page-load", handleImages);
-    window.addEventListener("resize", handleImages);
-  </script>
 </section>
+
+<style>
+  :root {
+    --wrapper-padding-inline: 2.5rem;
+    --wrapper-max-width: 110ch;
+    --section-padding-block: 2.5rem;
+    --paragraph-max-width: 69ch;
+  }
+  * {
+    /* outline: solid 1px red; */
+    font-family: var(--font-sans);
+    line-height: var(--font-lineheight-3);
+  }
+  h1 {
+    font-size: 4rem;
+    color: var(--teal-10);
+  }
+  p {
+    margin-top: var(--space-s);
+    font-size: var(--step-0);
+    color: var(--gray-11);
+    max-width: var(--paragraph-max-width);
+  }
+  .lede {
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+  .primary {
+    background: var(--teal-1);
+  }
+  .secondary {
+    background: var(--lime-2);
+  }
+  .tertiary {
+    background: var(--teal-4);
+  }
+  .quaternary {
+    background: var(--lime-4);
+  }
+  .page {
+    display: grid;
+    height: 100vh;
+    background: var(--lime-2);
+    align-content: center;
+    text-align: center;
+  }
+  .wrapper {
+    max-width: var(--wrapper-max-width);
+    margin-inline: auto;
+    padding-inline: var(--wrapper-padding-inline);
+  }
+  .txt-center {
+    text-align: center;
+    display: inline-block;
+    margin-inline: auto;
+  }
+</style>
+
+<style is:global>
+  /* Two Column Layout */
+  /* In Astro this must be set as a global style, otherwise it doesn't compile correctly */
+
+  .full-width-split-screen {
+    padding-block: 0;
+  }
+  .full-width-split-screen img {
+    /* outline: 2px solid red; */
+    object-fit: cover;
+  }
+
+  .full-width-split-screen > :not(img) {
+    padding-inline: var(--wrapper-padding-inline);
+    padding-block: var(--wrapper-padding-inline);
+  }
+  @media (min-width: 600px) {
+    .full-width-split-screen {
+      display: grid;
+      grid-template-columns:
+        minmax(var(--wrapper-padding-inline), 1fr)
+        minmax(0, calc(var(--wrapper-max-width) / 2))
+        minmax(0, calc(var(--wrapper-max-width) / 2))
+        minmax(var(--wrapper-padding-inline), 1fr);
+      position: relative;
+    }
+    .full-width-split-screen > img:first-child {
+      grid-column: 1 / 3;
+    }
+    .full-width-split-screen > img:last-child {
+      grid-column: 3 / -1;
+    }
+    .full-width-split-screen > :not(img) {
+      display: grid;
+      align-content: center;
+      justify-content: start;
+    }
+    .full-width-split-screen > :not(img):first-child {
+      grid-column: 2 / 3;
+    }
+    .full-width-split-screen > :not(img):last-child {
+      grid-column: 3 / 4;
+    }
+    .full-width-split-screen > :not(img)::before {
+      content: " ";
+      position: absolute;
+      inset: 0;
+      background: inherit;
+    }
+    .full-width-split-screen > :not(img):first-child::before {
+      grid-column: 1 / 2;
+    }
+    .full-width-split-screen > :not(img):last-child::before {
+      grid-column: 4 / 5;
+    }
+  }
+</style>
+
+<script>
+  const min_screen_width = 600;
+
+  function handleImages() {
+    console.log("Function Called");
+
+    if (window.innerWidth > min_screen_width) {
+      const fullWidthSplitScreens = document.querySelectorAll(
+        ".full-width-split-screen"
+      );
+
+      fullWidthSplitScreens.forEach((element) => {
+        const imgElements = element.querySelectorAll("img");
+
+        imgElements.forEach((imgElement) => {
+          imgElement.style.height = `${element.clientHeight}px`;
+
+          imgElement.addEventListener("load", () => {
+            imgElement.style.height = `${element.clientHeight}px`;
+            console.log("Image loaded and resized!");
+          });
+        });
+      });
+    }
+
+    // Remove height styling if window goes below minimum width
+    if (window.innerWidth <= min_screen_width) {
+      //   console.log("Remove heights");
+
+      const fullWidthSplitScreens = document.querySelectorAll(
+        ".full-width-split-screen"
+      );
+      fullWidthSplitScreens.forEach((element) => {
+        const imgElement = element.querySelector(
+          "img"
+        ) as HTMLImageElement | null;
+        if (imgElement) {
+          //   console.log("Remove height style");
+          imgElement.style.height = "";
+        }
+      });
+    }
+  }
+  document.addEventListener("astro:page-load", handleImages);
+  window.addEventListener("resize", handleImages);
+</script>
