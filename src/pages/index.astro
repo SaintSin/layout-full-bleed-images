@@ -234,9 +234,9 @@ import "../styles/two_column.css";
 </Layout>
 <style>
   :root {
-    --wrapper-padding-inline: 2.5rem;
+    --wrapper-padding-inline: var(--size-fluid-4);
     --wrapper-max-width: 110ch;
-    --section-padding-block: 2.5rem;
+    --section-padding-block: var(--size-fluid-4);
     --paragraph-max-width: 69ch;
   }
   * {
@@ -245,8 +245,11 @@ import "../styles/two_column.css";
     line-height: var(--font-lineheight-3);
   }
   h1 {
-    font-size: 4rem;
+    font-size: var(--font-size-fluid-3);
     color: var(--teal-10);
+  }
+  h2 {
+    font-size: var(--font-size-fluid-2);
   }
   p {
     margin-top: var(--space-s);
