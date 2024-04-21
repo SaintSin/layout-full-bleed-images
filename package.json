@@ -10,15 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.9",
-    "astro": "^4.5.8",
-    "open-props": "^1.6.21",
-    "sass": "^1.72.0",
-    "sharp": "^0.33.2",
-    "typescript": "^5.4.3"
+    "@astrojs/check": "^0.5.10",
+    "astro": "^4.6.3",
+    "open-props": "^1.7.3",
+    "sass": "^1.75.0",
+    "sharp": "^0.33.3",
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.1",
     "postcss-jit-props": "^1.0.14"
   }
 }
