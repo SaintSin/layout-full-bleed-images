@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
-    "astro": "^4.9.1",
-    "open-props": "^1.7.4",
-    "sass": "^1.77.2",
+    "astro": "^4.11.5",
+    "open-props": "^1.7.5",
+    "sass": "^1.77.6",
     "sharp": "^0.33.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
     "postcss-jit-props": "^1.0.14"
