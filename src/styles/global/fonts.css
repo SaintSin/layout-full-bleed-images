@@ -1,0 +1,6 @@
+/* @font-face here */
+
+html,
+p {
+  font-family: var(--font-sans);
+}

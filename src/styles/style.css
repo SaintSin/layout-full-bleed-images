@@ -1,2 +1,17 @@
-@import "_globals.scss";
-@import "_reset.scss";
+@import "global/reset.scss";
+@import "global/fonts.css";
+
+/* A bit too opinionted */
+/* @import "open-props/normalize"; */
+
+@import "global/variables.css";
+@import "global/global-styles.css";
+
+@import "compositions/box.css" layer(components);
+
+@import "compositions/flow.css" layer(components);
+@import "compositions/icon.css" layer(components);
+
+@import "compositions/wrapper.css" layer(components);
+@import "compositions/grid.css" layer(components);
+@import "utilities/visually-hidden.css" layer(components);
