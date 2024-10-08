@@ -8,13 +8,11 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format:check": "prettier --check .",
-    "format::write": "prettier --write ."
+    "prettier": "prettier --write . --plugin=prettier-plugin-astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@playform/compress": "^0.1.1",
-    "astro": "^4.15.10",
+    "@astrojs/check": "^0.9.4",
+    "astro": "^4.15.12",
     "open-props": "^1.7.6",
     "sass": "^1.79.4",
     "sharp": "^0.33.5",

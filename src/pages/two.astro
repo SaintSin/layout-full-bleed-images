@@ -70,22 +70,12 @@ import "@styles/two_column.css";
         consequat quis voluptate. Commodo ut ad pariatur duis sunt velit veniam
         minim.
       </p>
-
-      <p>
-        Do sunt ex do veniam consectetur enim. Ex ut irure excepteur dolor duis
-        et mollit amet proident velit cupidatat proident in eiusmod. Aliqua
-        aliquip mollit sit nisi amet reprehenderit Lorem eiusmod magna occaecat
-        magna. Duis amet aliquip dolore dolore voluptate consectetur. Deserunt
-        commodo do laboris elit culpa sint ut. Deserunt reprehenderit ex
-        pariatur deserunt aute laborum reprehenderit aliquip aliqua excepteur ut
-        enim nisi.
-      </p>
     </div>
   </section>
 
   <section class="full-width-split-screen">
     <div class="tertiary">
-      <h2>A Picture 3</h2><p>
+      <h2>Another Picture of Meancing Cats Picture 3</h2><p>
         Elit dolor voluptate cupidatat labore qui adipisicing cillum. Proident
         dolore ad magna anim nulla aliqua veniam. Deserunt deserunt eiusmod in
         do labore dolore anim. Ea esse mollit est in dolor qui cillum amet
@@ -118,7 +108,7 @@ import "@styles/two_column.css";
     />
   </section>
 
-  <section class="full-width-split-screen">
+  <section class="full-width-split-screen secondary">
     <Image
       src={image4}
       format={"avif"}
@@ -223,6 +213,8 @@ import "@styles/two_column.css";
   </section>
 </Layout>
 <style>
+  /* OKLCH Gradient Designer */
+  /* https://gradient.style/ */
   :root {
     --wrapper-padding-inline: var(--size-fluid-4);
     --wrapper-max-width: 95ch;
@@ -234,14 +226,20 @@ import "@styles/two_column.css";
     font-family: var(--font-sans);
     line-height: var(--font-lineheight-3);
   }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-neo-grotesque);
+    font-weight: var(--font-weight-6);
+    line-height: var(--font-lineheight-0);
+    text-wrap: balance;
+  }
   h1 {
     font-size: var(--font-size-fluid-3);
     color: var(--teal-10);
-    font-family: var(--font-serif);
   }
   h2 {
     font-size: var(--font-size-fluid-2);
-    font-family: var(--font-serif);
     font-weight: 500;
   }
   p {
@@ -265,7 +263,16 @@ import "@styles/two_column.css";
     background: var(--teal-4);
   }
   .quaternary {
-    background: var(--lime-4);
+    background-image: linear-gradient(
+      to top in oklch,
+      oklch(58% 0.5 340) 5% 5%,
+      75%,
+      oklch(90% 0.5 10) 100% 100%
+    );
+    color: var(--stone-0);
+    p {
+      color: var(--stone-0);
+    }
   }
   .page {
     display: grid;
@@ -284,5 +291,11 @@ import "@styles/two_column.css";
     display: inline-block;
     margin-inline: auto;
   }
+  img {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
 </style>
-<script src="@scripts/image.ts"></script>
+<script src="../scripts/image-sizes.ts"></script>
