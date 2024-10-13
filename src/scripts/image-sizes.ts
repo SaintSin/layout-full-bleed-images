@@ -1,7 +1,7 @@
 const min_screen_width = 600;
 
 function handleImages() {
-  // console.log("Function Called");
+  console.log("Function Called");
 
   if (window.innerWidth > min_screen_width) {
     const fullWidthSplitScreens = document.querySelectorAll(

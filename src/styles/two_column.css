@@ -1,6 +1,9 @@
 /* Two Column Layout */
 /* In Astro this must be set as a global style, otherwise it doesn't compile correctly */
 
+img {
+  display: block;
+}
 .full-width-split-screen {
   padding-block: 0;
 }
