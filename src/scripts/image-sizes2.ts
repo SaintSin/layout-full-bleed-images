@@ -3,7 +3,7 @@ function matchSplitScreenImageHeights(): void {
     ".full-width-split-screen",
   );
 
-  splitScreens.forEach((container) => {
+  for (const container of splitScreens) {
     const images = container.querySelectorAll<HTMLImageElement>("img");
     const pictures = container.querySelectorAll<HTMLPictureElement>("picture");
     const nonImageElements = Array.from(container.children).filter(
@@ -12,12 +12,12 @@ function matchSplitScreenImageHeights(): void {
     );
 
     // Reset any previously set heights
-    images.forEach((img) => {
+    for (const img of images) {
       img.style.height = "";
       img.style.minHeight = "";
-    });
+    }
 
-    pictures.forEach((picture) => {
+    for (const picture of pictures) {
       picture.style.height = "";
       picture.style.minHeight = "";
       // Also reset the img inside the picture element
@@ -26,7 +26,7 @@ function matchSplitScreenImageHeights(): void {
         innerImg.style.height = "";
         innerImg.style.minHeight = "";
       }
-    });
+    }
 
     // Check if we're in desktop mode (matches the CSS media query)
     const isDesktop = window.matchMedia("(min-width: 600px)").matches;
@@ -44,19 +44,19 @@ function matchSplitScreenImageHeights(): void {
       // Get the maximum height of all non-image elements
       let maxContentHeight = 0;
 
-      nonImageElements.forEach((element) => {
+      for (const element of nonImageElements) {
         const rect = element.getBoundingClientRect();
         maxContentHeight = Math.max(maxContentHeight, rect.height);
-      });
+      }
 
       // Apply the height to all images and pictures
       if (maxContentHeight > 0) {
-        images.forEach((img) => {
+        for (const img of images) {
           img.style.height = `${maxContentHeight}px`;
           img.style.minHeight = `${maxContentHeight}px`;
-        });
+        }
 
-        pictures.forEach((picture) => {
+        for (const picture of pictures) {
           picture.style.height = `${maxContentHeight}px`;
           picture.style.minHeight = `${maxContentHeight}px`;
           // Apply the same height to the img inside the picture element
@@ -66,10 +66,10 @@ function matchSplitScreenImageHeights(): void {
             innerImg.style.minHeight = `${maxContentHeight}px`;
             innerImg.style.objectFit = "cover";
           }
-        });
+        }
       }
     }
-  });
+  }
 }
 
 // Debounce function to prevent excessive resize event firing
@@ -105,7 +105,7 @@ function initSplitScreenHeightMatcher(): void {
     ".full-width-split-screen picture",
   );
 
-  images.forEach((img) => {
+  for (const img of images) {
     if (img.complete) {
       // Image already loaded
       matchSplitScreenImageHeights();
@@ -114,9 +114,9 @@ function initSplitScreenHeightMatcher(): void {
       img.addEventListener("load", matchSplitScreenImageHeights);
       img.addEventListener("error", matchSplitScreenImageHeights);
     }
-  });
+  }
 
-  pictures.forEach((picture) => {
+  for (const picture of pictures) {
     const innerImg = picture.querySelector<HTMLImageElement>("img");
     if (innerImg) {
       if (innerImg.complete) {
@@ -128,7 +128,7 @@ function initSplitScreenHeightMatcher(): void {
         innerImg.addEventListener("error", matchSplitScreenImageHeights);
       }
     }
-  });
+  }
 }
 
 // Auto-initialize
