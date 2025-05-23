@@ -52,8 +52,6 @@ import "../styles/two_column.css";
       src={image1}
       format={"avif"}
       quality={40}
-      widths={[400, 800, 1200]}
-      sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
       alt="Cat lying down staring at camera"
       loading={"eager"}
     />
@@ -64,8 +62,6 @@ import "../styles/two_column.css";
       src={image2}
       format={"avif"}
       quality={40}
-      widths={[400, 800, 1200]}
-      sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
       alt="A cute kitten"
       loading={"eager"}
     />
@@ -124,14 +120,7 @@ import "../styles/two_column.css";
         minim.
       </p>
     </div>
-    <Image
-      src={image3}
-      format={"avif"}
-      quality={40}
-      widths={[400, 800, 1200]}
-      sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
-      alt="Playful cats"
-    />
+    <Image src={image3} format={"avif"} quality={40} alt="Playful cats" />
   </section>
 
   <section class="full-width-split-screen">
@@ -139,8 +128,6 @@ import "../styles/two_column.css";
       src={image4}
       format={"avif"}
       quality={40}
-      widths={[400, 800, 1200]}
-      sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
       alt="Ginger kitten in grassy field"
     />
     <div class="quaternary">
@@ -176,16 +163,12 @@ import "../styles/two_column.css";
       src={image3}
       format={"avif"}
       quality={40}
-      widths={[400, 800, 1200]}
-      sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
       alt="Mice run away from this duo"
     />
     <Image
       src={image4}
       format={"avif"}
       quality={40}
-      widths={[400, 800, 1200]}
-      sizes={`(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px`}
       alt="Ginger kitten in grassy field"
     />
   </section>
@@ -300,4 +283,4 @@ import "../styles/two_column.css";
     margin-inline: auto;
   }
 </style>
-<script src="../scripts/image-sizes.ts"></script>
+<script src="../scripts/image-sizes2.ts"></script>
