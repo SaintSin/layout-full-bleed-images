@@ -15,11 +15,13 @@ const menu = {
       menu.main.map((item) => {
         const isActive = item.url === pathname;
         return isActive ? (
-          <a href={item.url} class="active">
-            {item.name} data-astro-prefetch
+          <a href={item.url} data-astro-prefetch class="active">
+            {item.name}
           </a>
         ) : (
-          <a href={item.url}>{item.name} data-astro-prefetch</a>
+          <a href={item.url} data-astro-prefetch>
+            {item.name}
+          </a>
         );
       })
     }
