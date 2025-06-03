@@ -16,10 +16,10 @@ const menu = {
         const isActive = item.url === pathname;
         return isActive ? (
           <a href={item.url} class="active">
-            {item.name}
+            {item.name} data-astro-prefetch
           </a>
         ) : (
-          <a href={item.url}>{item.name}</a>
+          <a href={item.url}>{item.name} data-astro-prefetch</a>
         );
       })
     }
