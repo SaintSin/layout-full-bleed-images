@@ -296,29 +296,43 @@ import "@styles/two_column.css";
     overflow: hidden;
     border-radius: calc(var(--size-fluid-4) * 2);
   }
+  .fade-left,
+  .fade-right,
+  .fade-up {
+    opacity: 0;
+  }
 </style>
 <script src="../scripts/image-sizes2.ts"></script>
 <script>
   import { animate, inView, easeInOut } from "motion";
-  inView(".fade-left", (element) => {
-    animate(
-      element,
-      { opacity: [0, 1], x: [-250, 0] },
-      { ease: [0.39, 0.24, 0.3, 1], duration: 1 }
-    );
-  });
-  inView(".fade-right", (element) => {
-    animate(
-      element,
-      { opacity: [0, 1], x: [250, 0] },
-      { ease: [0.39, 0.24, 0.3, 1], duration: 1 }
-    );
-  });
-  inView(".fade-up", (element) => {
-    animate(
-      element,
-      { opacity: [0, 1], y: [250, 0] },
-      { ease: easeInOut, duration: 0.5, delay: 0.2 }
-    );
-  });
+
+  function initAnimations() {
+    inView(".fade-left", (element) => {
+      animate(
+        element,
+        { opacity: [0, 1], x: [-250, 0] },
+        { ease: [0.39, 0.24, 0.3, 1], duration: 1 }
+      );
+    });
+    inView(".fade-right", (element) => {
+      animate(
+        element,
+        { opacity: [0, 1], x: [250, 0] },
+        { ease: [0.39, 0.24, 0.3, 1], duration: 1 }
+      );
+    });
+    inView(".fade-up", (element) => {
+      animate(
+        element,
+        { opacity: [0, 1], y: [250, 0] },
+        { ease: easeInOut, duration: 0.5, delay: 0.2 }
+      );
+    });
+  }
+  // Initialize on load
+  initAnimations();
+
+  // Reinitialize after Astro transitions
+  document.addEventListener("astro:page-load", initAnimations);
+  document.addEventListener("astro:after-swap", initAnimations);
 </script>
