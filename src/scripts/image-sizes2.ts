@@ -93,6 +93,17 @@ function initSplitScreenHeightMatcher(): void {
     matchSplitScreenImageHeights();
   }
 
+  // Also run on full page load (after all resources are loaded)
+  if (document.readyState === "complete") {
+    matchSplitScreenImageHeights();
+  } else {
+    window.addEventListener("load", matchSplitScreenImageHeights);
+  }
+
+  // Handle Astro view transitions
+  document.addEventListener("astro:page-load", matchSplitScreenImageHeights);
+  document.addEventListener("astro:after-swap", matchSplitScreenImageHeights);
+
   // Run on window resize with debouncing
   const debouncedResize = debounce(matchSplitScreenImageHeights, 150);
   window.addEventListener("resize", debouncedResize);
