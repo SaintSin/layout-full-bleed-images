@@ -1,0 +1,46 @@
+---
+const { pathname } = Astro.url;
+const menu = {
+  main: [
+    { name: "Home", url: "/" },
+    { name: "Two", url: "/two/" },
+    { name: "Three", url: "/three/" },
+  ],
+};
+---
+
+<header class="header">
+  <nav class="wrapper">
+    {
+      menu.main.map((item) => {
+        const isActive = item.url === pathname;
+        return isActive ? (
+          <a href={item.url} class="active">
+            {item.name}
+          </a>
+        ) : (
+          <a href={item.url}>{item.name}</a>
+        );
+      })
+    }
+  </nav>
+</header>
+<style>
+  .header {
+    background: var(--stone-3);
+    padding-block: var(--size-fluid-1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  a {
+    display: inline-block;
+    margin-inline: 4px;
+    text-decoration: none;
+    color: var(--stone-11);
+  }
+  .active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+</style>

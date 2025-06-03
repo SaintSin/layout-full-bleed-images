@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "astro": "^5.8.1",
+    "motion": "^12.15.0",
     "open-props": "^1.7.15",
     "sass": "^1.89.1",
     "sharp": "^0.34.2",

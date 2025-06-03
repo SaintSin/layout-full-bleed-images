@@ -12,7 +12,7 @@ import "@styles/two_column.css";
 
 <Layout title="Welcome to Astro.">
   <section class="full-width-split-screen | primary">
-    <div>
+    <div class="fade-left">
       <h2>Fit Image To Row Height</h2>
       <h3>Padding for text on rhs needs fixing</h3>
       <p>
@@ -73,7 +73,7 @@ import "@styles/two_column.css";
   </section>
 
   <section class="full-width-split-screen | tertiary">
-    <div>
+    <div class="fade-left">
       <h2>Another Picture of Meancing Cats Picture 3</h2><p>
         Elit dolor voluptate cupidatat labore qui adipisicing cillum. Proident
         dolore ad magna anim nulla aliqua veniam. Deserunt deserunt eiusmod in
@@ -103,6 +103,7 @@ import "@styles/two_column.css";
       quality={40}
       layout="full-width"
       alt="Playful cats"
+      class="fade-right"
     />
   </section>
 
@@ -113,8 +114,9 @@ import "@styles/two_column.css";
       quality={40}
       layout="full-width"
       alt="Ginger kitten in grassy field"
+      class="fade-left"
     />
-    <div class="">
+    <div class="fade-right">
       <h2>A Picture 4</h2>
       <p>
         Et esse laborum minim occaecat minim dolor nulla elit officia ut ea id.
@@ -149,6 +151,7 @@ import "@styles/two_column.css";
       quality={40}
       layout="full-width"
       alt="Mice run away from this duo"
+      class="fade-left"
     />
     <Image
       src={image4}
@@ -156,10 +159,11 @@ import "@styles/two_column.css";
       quality={40}
       layout="full-width"
       alt="Ginger kitten in grassy field"
+      class="fade-right"
     />
   </section>
   <section class="full-width-split-screen primary">
-    <div class="">
+    <div class="fade-up">
       <h3>First</h3>
       <p>
         Dolor laborum eu ullamco fugiat labore eiusmod qui excepteur minim aute
@@ -170,7 +174,7 @@ import "@styles/two_column.css";
         minim id voluptate aute mollit tempor magna.
       </p>
     </div>
-    <div class="">
+    <div class="fade-up">
       <h3>Second</h3>
       <p>
         Dolor laborum eu ullamco fugiat labore eiusmod qui excepteur minim aute
@@ -294,3 +298,27 @@ import "@styles/two_column.css";
   }
 </style>
 <script src="../scripts/image-sizes2.ts"></script>
+<script>
+  import { animate, inView, easeInOut } from "motion";
+  inView(".fade-left", (element) => {
+    animate(
+      element,
+      { opacity: [0, 1], x: [-250, 0] },
+      { ease: [0.39, 0.24, 0.3, 1], duration: 1 }
+    );
+  });
+  inView(".fade-right", (element) => {
+    animate(
+      element,
+      { opacity: [0, 1], x: [250, 0] },
+      { ease: [0.39, 0.24, 0.3, 1], duration: 1 }
+    );
+  });
+  inView(".fade-up", (element) => {
+    animate(
+      element,
+      { opacity: [0, 1], y: [250, 0] },
+      { ease: easeInOut, duration: 0.5, delay: 0.2 }
+    );
+  });
+</script>
