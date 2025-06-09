@@ -13,8 +13,8 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@playform/compress": "^0.1.9",
-    "astro": "^5.8.1",
-    "motion": "^12.15.0",
+    "astro": "^5.9.1",
+    "motion": "^12.16.0",
     "open-props": "^1.7.15",
     "sass": "^1.89.1",
     "sharp": "^0.34.2",

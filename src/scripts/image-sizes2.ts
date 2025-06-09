@@ -4,8 +4,13 @@ function matchSplitScreenImageHeights(): void {
   );
 
   for (const container of splitScreens) {
-    const images = container.querySelectorAll<HTMLImageElement>("img");
-    const pictures = container.querySelectorAll<HTMLPictureElement>("picture");
+    // Select images only as first child
+    const images = Array.from(container.children).filter(
+      (child): child is HTMLImageElement => child.tagName === "IMG",
+    );
+    const pictures = Array.from(container.children).filter(
+      (child): child is HTMLPictureElement => child.tagName === "PICTURE",
+    );
     const nonImageElements = Array.from(container.children).filter(
       (child): child is HTMLElement =>
         child.tagName !== "IMG" && child.tagName !== "PICTURE",
