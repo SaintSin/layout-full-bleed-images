@@ -4,9 +4,7 @@ import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    responsiveImages: true,
-  },
+  experimental: {},
   prefetch: true,
   integrations: [
     (await import("@playform/compress")).default({
