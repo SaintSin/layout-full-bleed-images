@@ -318,21 +318,31 @@ import "@styles/two_column.css";
       animate(
         element,
         { opacity: [0, 1], x: [-250, 0] },
-        { ease: [0.39, 0.24, 0.3, 1], duration: 1 },
+        {
+          ease: [0.39, 0.24, 0.3, 1],
+          duration: 1,
+        },
       );
     });
     inView(".fade-right", (element) => {
       animate(
         element,
         { opacity: [0, 1], x: [250, 0] },
-        { ease: [0.39, 0.24, 0.3, 1], duration: 1 },
+        {
+          ease: [0.39, 0.24, 0.3, 1],
+          duration: 1,
+        },
       );
     });
     inView(".fade-up", (element) => {
       animate(
         element,
         { opacity: [0, 1], y: [250, 0] },
-        { ease: easeInOut, duration: 0.5, delay: 0.2 },
+        {
+          ease: easeInOut,
+          duration: 0.5,
+          delay: 0.2,
+        },
       );
     });
   }

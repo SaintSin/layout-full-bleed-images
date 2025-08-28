@@ -1,0 +1,14 @@
+{
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-css-order"],
+  "tabWidth": 2,
+  "printWidth": 80,
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ],
+  "cssDeclarationSorterOrder": "concentric-css"
+}
