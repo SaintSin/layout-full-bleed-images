@@ -3,5 +3,5 @@ const OpenProps = require("open-props");
 // const postcssNesting = require("postcss-nesting");
 
 module.exports = {
-  plugins: [postcssJitProps(OpenProps)],
+	plugins: [postcssJitProps(OpenProps)],
 };

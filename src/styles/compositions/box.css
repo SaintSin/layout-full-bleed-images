@@ -4,16 +4,16 @@ More info: https://every-layout.dev/layouts/box/#the-generator
 */
 
 .box {
-  background: var(--color-light);
-  color: var(--color-dark);
-  padding: var(--space-s-m);
+	background: var(--color-light);
+	color: var(--color-dark);
+	padding: var(--space-s-m);
 }
 
 .box * {
-  color: inherit;
+	color: inherit;
 }
 
 .box.invert {
-  background: var(--color-dark);
-  color: var(--color-light);
+	background: var(--color-dark);
+	color: var(--color-light);
 }
