@@ -14,13 +14,13 @@ const debounceResize = (callback: () => void, delay: number): (() => void) => {
 
 function handleImages(): void {
 	const fullWidthSplitScreens = document.querySelectorAll<HTMLElement>(
-		".full-width-split-screen"
+		'.full-width-split-screen',
 	);
 
 	// Use for...of to loop through each full-width-split-screen element
 	for (const element of fullWidthSplitScreens) {
 		const imgElements =
-			element.querySelectorAll<HTMLImageElement>("img, picture img");
+			element.querySelectorAll<HTMLImageElement>('img, picture img');
 
 		// If the window is wider than the minimum width
 		if (window.innerWidth > minScreenWidth) {
@@ -49,14 +49,14 @@ function handleImages(): void {
 				if (imgElement.complete) {
 					adjustImageSize();
 				} else {
-					imgElement.addEventListener("load", adjustImageSize);
+					imgElement.addEventListener('load', adjustImageSize);
 				}
 			}
 		} else {
 			// If the window is narrower, clear the styles so images revert to natural sizing
 			for (const imgElement of imgElements) {
-				imgElement.style.height = ""; // Reset height
-				imgElement.style.width = ""; // Reset width
+				imgElement.style.height = ''; // Reset height
+				imgElement.style.width = ''; // Reset width
 
 				// Add debug logging to ensure styles are reset
 				console.log(`Image reset: ${imgElement.src}`);
@@ -66,5 +66,5 @@ function handleImages(): void {
 }
 
 // Attach the event listeners to handle images on page load and resize
-document.addEventListener("astro:page-load", handleImages);
-window.addEventListener("resize", debounceResize(handleImages, 200));
+document.addEventListener('astro:page-load', handleImages);
+window.addEventListener('resize', debounceResize(handleImages, 200));

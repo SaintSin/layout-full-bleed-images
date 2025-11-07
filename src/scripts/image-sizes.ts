@@ -7,15 +7,15 @@ const RESIZE_DEBOUNCE_DELAY = 150;
 
 // Type guards for better type safety
 function isImageElement(child: Element): child is HTMLImageElement {
-	return child.tagName === "IMG";
+	return child.tagName === 'IMG';
 }
 
 function isPictureElement(child: Element): child is HTMLPictureElement {
-	return child.tagName === "PICTURE";
+	return child.tagName === 'PICTURE';
 }
 
 function isNonImageElement(child: Element): child is HTMLElement {
-	return child.tagName !== "IMG" && child.tagName !== "PICTURE";
+	return child.tagName !== 'IMG' && child.tagName !== 'PICTURE';
 }
 
 // Cache for DOM elements to avoid repeated queries
@@ -36,7 +36,7 @@ function matchSplitScreenImageHeights(): void {
 	try {
 		// Early return for mobile - no height matching needed
 		const isDesktop = window.matchMedia(
-			`(min-width: ${DESKTOP_BREAKPOINT}px)`
+			`(min-width: ${DESKTOP_BREAKPOINT}px)`,
 		).matches;
 		if (!isDesktop) {
 			// Reset any heights that might have been set
@@ -45,7 +45,7 @@ function matchSplitScreenImageHeights(): void {
 		}
 
 		const splitScreens = document.querySelectorAll<HTMLElement>(
-			".full-width-split-screen"
+			'.full-width-split-screen',
 		);
 		if (splitScreens.length === 0) return; // No containers found
 
@@ -53,7 +53,7 @@ function matchSplitScreenImageHeights(): void {
 			processContainer(container);
 		}
 	} catch (error) {
-		console.warn("Error matching split screen heights:", error);
+		console.warn('Error matching split screen heights:', error);
 	}
 }
 
@@ -100,28 +100,28 @@ function processContainer(container: HTMLElement): void {
 
 function resetElementHeights(
 	images: HTMLImageElement[],
-	pictures: HTMLPictureElement[]
+	pictures: HTMLPictureElement[],
 ): void {
 	for (const img of images) {
-		img.style.height = "";
-		img.style.minHeight = "";
+		img.style.height = '';
+		img.style.minHeight = '';
 	}
 
 	for (const picture of pictures) {
-		picture.style.height = "";
-		picture.style.minHeight = "";
+		picture.style.height = '';
+		picture.style.minHeight = '';
 		// Also reset the img inside the picture element
-		const innerImg = picture.querySelector<HTMLImageElement>("img");
+		const innerImg = picture.querySelector<HTMLImageElement>('img');
 		if (innerImg) {
-			innerImg.style.height = "";
-			innerImg.style.minHeight = "";
+			innerImg.style.height = '';
+			innerImg.style.minHeight = '';
 		}
 	}
 }
 
 function resetAllHeights(): void {
 	const splitScreens = document.querySelectorAll<HTMLElement>(
-		".full-width-split-screen"
+		'.full-width-split-screen',
 	);
 
 	for (const container of splitScreens) {
@@ -134,7 +134,7 @@ function resetAllHeights(): void {
 function applyHeights(
 	images: HTMLImageElement[],
 	pictures: HTMLPictureElement[],
-	height: number
+	height: number,
 ): void {
 	const heightPx = `${height}px`;
 
@@ -147,11 +147,11 @@ function applyHeights(
 		picture.style.height = heightPx;
 		picture.style.minHeight = heightPx;
 		// Apply the same height to the img inside the picture element
-		const innerImg = picture.querySelector<HTMLImageElement>("img");
+		const innerImg = picture.querySelector<HTMLImageElement>('img');
 		if (innerImg) {
 			innerImg.style.height = heightPx;
 			innerImg.style.minHeight = heightPx;
-			innerImg.style.objectFit = "cover";
+			innerImg.style.objectFit = 'cover';
 		}
 	}
 }
@@ -159,7 +159,7 @@ function applyHeights(
 // Debounce function to prevent excessive resize event firing
 function debounce<T extends (...args: any[]) => void>(
 	func: T,
-	wait: number
+	wait: number,
 ): (...args: Parameters<T>) => void {
 	let timeout: NodeJS.Timeout;
 	return (...args: Parameters<T>) => {
@@ -176,35 +176,35 @@ function clearCache(): void {
 // Initialize the height matching
 function initSplitScreenHeightMatcher(): void {
 	if (isInitialized) {
-		console.warn("Split screen height matcher already initialized");
+		console.warn('Split screen height matcher already initialized');
 		return;
 	}
 
 	try {
 		// Run immediately when DOM is ready
-		if (document.readyState === "loading") {
+		if (document.readyState === 'loading') {
 			document.addEventListener(
-				"DOMContentLoaded",
-				matchSplitScreenImageHeights
+				'DOMContentLoaded',
+				matchSplitScreenImageHeights,
 			);
 		} else {
 			matchSplitScreenImageHeights();
 		}
 
 		// Also run on full page load (after all resources are loaded)
-		if (document.readyState === "complete") {
+		if (document.readyState === 'complete') {
 			matchSplitScreenImageHeights();
 		} else {
-			window.addEventListener("load", matchSplitScreenImageHeights);
+			window.addEventListener('load', matchSplitScreenImageHeights);
 		}
 
 		// Handle Astro view transitions - clear cache on page changes
-		document.addEventListener("astro:page-load", () => {
+		document.addEventListener('astro:page-load', () => {
 			clearCache();
 			matchSplitScreenImageHeights();
 		});
 
-		document.addEventListener("astro:after-swap", () => {
+		document.addEventListener('astro:after-swap', () => {
 			clearCache();
 			matchSplitScreenImageHeights();
 		});
@@ -212,25 +212,25 @@ function initSplitScreenHeightMatcher(): void {
 		// Run on window resize with debouncing
 		debouncedResize = debounce(
 			matchSplitScreenImageHeights,
-			RESIZE_DEBOUNCE_DELAY
+			RESIZE_DEBOUNCE_DELAY,
 		);
-		window.addEventListener("resize", debouncedResize);
+		window.addEventListener('resize', debouncedResize);
 
 		// Also run when images load (in case they affect layout)
 		setupImageLoadListeners();
 
 		isInitialized = true;
 	} catch (error) {
-		console.error("Failed to initialize split screen height matcher:", error);
+		console.error('Failed to initialize split screen height matcher:', error);
 	}
 }
 
 function setupImageLoadListeners(): void {
 	const images = document.querySelectorAll<HTMLImageElement>(
-		".full-width-split-screen img"
+		'.full-width-split-screen img',
 	);
 	const pictures = document.querySelectorAll<HTMLPictureElement>(
-		".full-width-split-screen picture"
+		'.full-width-split-screen picture',
 	);
 
 	for (const img of images) {
@@ -239,21 +239,21 @@ function setupImageLoadListeners(): void {
 			matchSplitScreenImageHeights();
 		} else {
 			// Wait for image to load
-			img.addEventListener("load", matchSplitScreenImageHeights);
-			img.addEventListener("error", matchSplitScreenImageHeights);
+			img.addEventListener('load', matchSplitScreenImageHeights);
+			img.addEventListener('error', matchSplitScreenImageHeights);
 		}
 	}
 
 	for (const picture of pictures) {
-		const innerImg = picture.querySelector<HTMLImageElement>("img");
+		const innerImg = picture.querySelector<HTMLImageElement>('img');
 		if (innerImg) {
 			if (innerImg.complete) {
 				// Image already loaded
 				matchSplitScreenImageHeights();
 			} else {
 				// Wait for image to load
-				innerImg.addEventListener("load", matchSplitScreenImageHeights);
-				innerImg.addEventListener("error", matchSplitScreenImageHeights);
+				innerImg.addEventListener('load', matchSplitScreenImageHeights);
+				innerImg.addEventListener('error', matchSplitScreenImageHeights);
 			}
 		}
 	}
@@ -266,21 +266,21 @@ function cleanup(): void {
 	try {
 		// Remove event listeners
 		document.removeEventListener(
-			"DOMContentLoaded",
-			matchSplitScreenImageHeights
+			'DOMContentLoaded',
+			matchSplitScreenImageHeights,
 		);
-		window.removeEventListener("load", matchSplitScreenImageHeights);
+		window.removeEventListener('load', matchSplitScreenImageHeights);
 		document.removeEventListener(
-			"astro:page-load",
-			matchSplitScreenImageHeights
+			'astro:page-load',
+			matchSplitScreenImageHeights,
 		);
 		document.removeEventListener(
-			"astro:after-swap",
-			matchSplitScreenImageHeights
+			'astro:after-swap',
+			matchSplitScreenImageHeights,
 		);
 
 		if (debouncedResize) {
-			window.removeEventListener("resize", debouncedResize);
+			window.removeEventListener('resize', debouncedResize);
 		}
 
 		// Clear cache
@@ -291,7 +291,7 @@ function cleanup(): void {
 
 		isInitialized = false;
 	} catch (error) {
-		console.error("Error during cleanup:", error);
+		console.error('Error during cleanup:', error);
 	}
 }
 

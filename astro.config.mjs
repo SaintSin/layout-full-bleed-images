@@ -1,16 +1,16 @@
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
-import icon from "astro-icon";
+import sitemap from '@astrojs/sitemap';
+import { defineConfig } from 'astro/config';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-	site: "http://localhost:4321",
+	site: 'http://localhost:4321',
 	experimental: {},
 	prefetch: true,
 	integrations: [
 		sitemap(),
 		icon(),
-		(await import("@playform/compress")).default({
+		(await import('@playform/compress')).default({
 			CSS: true,
 			HTML: true,
 			Image: false,

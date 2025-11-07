@@ -1,7 +1,7 @@
 ---
-import type { MetaData } from "@lib/index";
-import { Head } from 'astro-capo';
 import { ClientRouter } from 'astro:transitions';
+import type { MetaData } from '@lib/index';
+import { Head } from 'astro-capo';
 
 interface Props {
 	metaData: MetaData;
@@ -18,7 +18,7 @@ const canonical = canonicalURL
 // Default OG image if none provided
 const socialImage = image
 	? new URL(image, Astro.site)
-	: new URL("/images/social/default.jpg", Astro.site);
+	: new URL('/images/social/default.jpg', Astro.site);
 ---
 <Head>
 <!-- Essential Meta Tags -->
