@@ -1,16 +1,21 @@
 ---
 import { Image } from "astro:assets";
-
+import type { MetaData } from "@lib/index";
 import image1 from "@images/placeholders/cat_3-pixel-cut.webp";
 import image2 from "@images/placeholders/cat_2.jpg";
 import image3 from "@images/placeholders/cat_3.jpg";
 import image4 from "@images/placeholders/cat_4.jpg";
 import Layout from "@layouts/Layout.astro";
-
 import "@styles/two_column.css";
+
+const metaData: MetaData = {
+	title: "Two Column Layout - Layout Bleeds Demo",
+	description:
+		"Simple two-column split-screen layout demonstration with full-bleed images.",
+};
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout metaData={metaData}>
 	<section class="full-width-split-screen | primary">
 		<div>
 			<h2>A Picture 1</h2>
@@ -286,4 +291,4 @@ import "@styles/two_column.css";
 		overflow: hidden;
 	}
 </style>
-<script src="../scripts/image-sizes.ts"></script>
+<script src="@scripts/image-sizes.ts"></script>

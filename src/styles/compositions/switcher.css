@@ -1,0 +1,34 @@
+/*
+SWITCHER COMPOSITION
+Switches from horizontal to vertical layout based on container width
+Based on: https://every-layout.dev/layouts/switcher/
+
+CUSTOM PROPERTIES:
+--switcher-gap: Space between items (default: var(--space-s))
+--switcher-threshold: Container width to switch layout (default: 30rem)
+--switcher-limit: Max number of items per row (default: 4)
+
+USAGE:
+<div class="switcher">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+*/
+
+.switcher {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--switcher-gap, var(--space-s, 0.5rem));
+}
+
+.switcher > * {
+	flex-grow: 1;
+	flex-basis: calc((var(--switcher-threshold, 30rem) - 100%) * 999);
+}
+
+/* Limit children per row */
+.switcher > :nth-last-child(n + var(--switcher-limit, 5)),
+.switcher > :nth-last-child(n + var(--switcher-limit, 5)) ~ * {
+	flex-basis: 100%;
+}

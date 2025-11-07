@@ -1,0 +1,20 @@
+{
+	"editor.formatOnSave": false,
+	"editor.defaultFormatter": "biomejs.biome",
+	"[astro]": {
+		"editor.defaultFormatter": "astro-lang.astro-vscode"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"files.associations": {
+		"*.css": "css"
+	},
+	"css.customData": [".vscode/css_custom_data.json"]
+}

@@ -1,0 +1,60 @@
+/*
+FRAME COMPOSITION
+Maintains aspect ratio for embedded content (images, videos, iframes)
+Based on: https://every-layout.dev/layouts/frame/
+
+CUSTOM PROPERTIES:
+--frame-ratio: Aspect ratio (default: 16/9)
+
+USAGE:
+<div class="frame">
+  <img src="..." alt="...">
+</div>
+
+Common aspect ratios:
+- 16/9 (widescreen)
+- 4/3 (standard)
+- 1/1 (square)
+- 21/9 (ultrawide)
+- 9/16 (portrait)
+*/
+
+.frame {
+	aspect-ratio: var(--frame-ratio, 16 / 9);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.frame > * {
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+}
+
+/* Variants for common aspect ratios */
+.frame[data-ratio="1:1"] {
+	--frame-ratio: 1 / 1;
+}
+
+.frame[data-ratio="4:3"] {
+	--frame-ratio: 4 / 3;
+}
+
+.frame[data-ratio="16:9"] {
+	--frame-ratio: 16 / 9;
+}
+
+.frame[data-ratio="21:9"] {
+	--frame-ratio: 21 / 9;
+}
+
+.frame[data-ratio="9:16"] {
+	--frame-ratio: 9 / 16;
+}
+
+/* Contain instead of cover */
+.frame[data-fit="contain"] > * {
+	object-fit: contain;
+}

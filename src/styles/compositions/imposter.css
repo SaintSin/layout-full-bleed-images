@@ -1,0 +1,49 @@
+/*
+IMPOSTER COMPOSITION
+Positions element over another (like a modal/overlay)
+Based on: https://every-layout.dev/layouts/imposter/
+
+CUSTOM PROPERTIES:
+--imposter-margin: Margin around imposter (default: 0)
+--imposter-z-index: Z-index for stacking (default: 999)
+
+USAGE:
+<div class="imposter-container">
+  <div>Background content</div>
+  <div class="imposter">
+    <p>Overlay content</p>
+  </div>
+</div>
+*/
+
+.imposter-container {
+	position: relative;
+}
+
+.imposter {
+	position: absolute;
+	inset: 0;
+	margin: var(--imposter-margin, 0);
+	z-index: var(--imposter-z-index, 999);
+}
+
+/* Fixed positioning variant */
+.imposter[data-fixed="true"] {
+	position: fixed;
+}
+
+/* Center the imposter content */
+.imposter[data-centered="true"] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Breakout from container */
+.imposter[data-breakout="true"] {
+	max-inline-size: 100vw;
+	max-block-size: 100vh;
+	inset-inline-start: 50%;
+	inset-block-start: 50%;
+	transform: translate(-50%, -50%);
+}

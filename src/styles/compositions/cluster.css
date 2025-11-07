@@ -1,0 +1,18 @@
+/*
+CLUSTER COMPOSITION
+Groups items horizontally with configurable spacing
+Based on: https://every-layout.dev/layouts/cluster/
+
+CUSTOM PROPERTIES:
+--cluster-gap: Space between items (default: var(--space-s))
+--cluster-justify: Justify content value (default: flex-start)
+--cluster-align: Align items value (default: center)
+*/
+
+.cluster {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cluster-gap, var(--space-s, 0.5rem));
+	justify-content: var(--cluster-justify, flex-start);
+	align-items: var(--cluster-align, center);
+}

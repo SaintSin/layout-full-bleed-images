@@ -1,0 +1,29 @@
+/*
+CENTER COMPOSITION
+Horizontally centers content with a max-width
+Based on: https://every-layout.dev/layouts/center/
+
+CUSTOM PROPERTIES:
+--center-max-width: Maximum width (default: 60ch)
+--center-padding: Inline padding (default: var(--space-m))
+--center-intrinsic: Whether to center intrinsic (narrower) children (default: false)
+
+USAGE:
+<div class="center">
+  <p>Centered content with max-width constraint</p>
+</div>
+*/
+
+.center {
+	box-sizing: content-box;
+	max-inline-size: var(--center-max-width, 60ch);
+	margin-inline: auto;
+	padding-inline: var(--center-padding, var(--space-m, 1rem));
+}
+
+/* Center intrinsic (naturally narrower) children */
+.center[data-intrinsic="true"] {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

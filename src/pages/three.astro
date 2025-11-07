@@ -1,16 +1,21 @@
 ---
 import { Image } from "astro:assets";
-
+import type { MetaData } from "@lib/index";
 import image1 from "@images/placeholders/cat_1.jpg";
 import image2 from "@images/placeholders/cat_2.jpg";
 import image3 from "@images/placeholders/cat_3.jpg";
 import image4 from "@images/placeholders/cat_4.jpg";
 import Layout from "@layouts/Layout.astro";
-
 import "@styles/two_column.css";
+
+const metaData: MetaData = {
+	title: "Animated Split-Screen - Layout Bleeds Demo",
+	description:
+		"Split-screen layout with scroll-triggered animations using Motion library.",
+};
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout metaData={metaData}>
 	<section class="full-width-split-screen | primary">
 		<div class="fade-left">
 			<h2>Fit Image To Row Height</h2>
@@ -309,7 +314,7 @@ import "@styles/two_column.css";
 		opacity: 0;
 	}
 </style>
-<script src="../scripts/image-sizes.ts"></script>
+<script src="@scripts/image-sizes.ts"></script>
 <script>
 	import { animate, inView, easeInOut } from "motion";
 

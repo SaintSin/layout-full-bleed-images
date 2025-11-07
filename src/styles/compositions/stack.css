@@ -1,0 +1,28 @@
+/*
+STACK COMPOSITION
+Vertical layout with automatic spacing and optional dividers
+Based on: https://every-layout.dev/layouts/stack/
+
+CUSTOM PROPERTIES:
+--stack-space: Space between children (default: 1.5rem)
+--stack-split: Element to push down (e.g., :nth-child(3) for split after 2nd item)
+*/
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.stack > * {
+	margin-block: 0;
+}
+
+.stack > * + * {
+	margin-block-start: var(--stack-space, 1.5rem);
+}
+
+/* Split stack: push last item to bottom */
+.stack > :nth-child(var(--stack-split)) {
+	margin-block-end: auto;
+}
