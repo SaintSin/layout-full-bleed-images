@@ -4,21 +4,26 @@ import type { MetaData } from '@lib/index';
 import { Head } from 'astro-capo';
 
 interface Props {
-	metaData: MetaData;
+  metaData: MetaData;
 }
 
 const { metaData } = Astro.props;
-const { title, description, image, canonicalURL } = metaData;
+const { title, description, image, imageOG, altOG, canonicalURL } = metaData;
 
 // Compute canonical URL
 const canonical = canonicalURL
-	? new URL(canonicalURL, Astro.site)
-	: new URL(Astro.url.pathname, Astro.site);
+  ? new URL(canonicalURL, Astro.site)
+  : new URL(Astro.url.pathname, Astro.site);
 
-// Default OG image if none provided
-const socialImage = image
-	? new URL(image, Astro.site)
-	: new URL('/images/social/default.jpg', Astro.site);
+// Use imageOG if provided, fallback to image, then default
+const socialImage = imageOG
+  ? new URL(imageOG, Astro.site)
+  : image
+    ? new URL(image, Astro.site)
+    : new URL('/images/social/default.jpg', Astro.site);
+
+// Alt text for social image
+const socialImageAlt = altOG || title;
 ---
 
 <Head>
@@ -42,6 +47,7 @@ const socialImage = image
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={socialImage} />
+  <meta property="og:image:alt" content={socialImageAlt} />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -49,6 +55,7 @@ const socialImage = image
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={socialImage} />
+  <meta property="twitter:image:alt" content={socialImageAlt} />
   <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
   <ClientRouter />
 </Head>

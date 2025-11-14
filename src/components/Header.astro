@@ -1,29 +1,26 @@
 ---
 const { pathname } = Astro.url;
 const menu = {
-	main: [
-		{ name: 'Home', url: '/' },
-		{ name: 'Two', url: '/two/' },
-		{ name: 'Three', url: '/three/' },
-	],
+  main: [
+    { name: 'Home', url: '/' },
+    { name: 'Two', url: '/two/' },
+    { name: 'Three', url: '/three/' },
+  ],
 };
 ---
 
 <header class="header">
   <nav class="wrapper">
     {
-      menu.main.map((item) => {
-        const isActive = item.url === pathname;
-        return isActive ? (
-          <a href={item.url} data-astro-prefetch class="active">
-            {item.name}
-          </a>
-        ) : (
-          <a href={item.url} data-astro-prefetch>
-            {item.name}
-          </a>
-        );
-      })
+      menu.main.map((item) => (
+        <a
+          href={item.url}
+          data-astro-prefetch
+          class={pathname === item.url ? 'active--exact' : ''}
+        >
+          {item.name}
+        </a>
+      ))
     }
   </nav>
 </header>
@@ -41,7 +38,7 @@ const menu = {
     color: var(--stone-11);
     text-decoration: none;
   }
-  .active {
+  .active--exact {
     font-weight: bold;
     text-decoration: underline;
   }

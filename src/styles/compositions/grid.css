@@ -60,3 +60,31 @@ to change how empty grid tracks are handled */
 .span-2 {
   grid-column: span 2;
 }
+
+/* CONTENT GRID
+Advanced grid with named grid areas for rich layouts
+with full-width, feature, popout, and content areas */
+:root {
+  --gap: var(--space-s);
+  --start: minmax(0, 20rem);
+  --end: minmax(0, 20rem);
+  --full: minmax(var(--gap), 20rem);
+  --content: min(100%, 72ch);
+  --popout: minmax(0, var(--gap));
+  --feature: minmax(0, 12vw);
+  --content-inset: min(clamp(30rem, 52vw, 60rem), 100% - var(--gap));
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--start) [feature-start] var(--feature) [popout-start] var(
+      --popout
+    )
+    [content-start] var(--content)
+    [content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(
+      --end
+    )
+    [full-end];
+  grid-area: content;
+}

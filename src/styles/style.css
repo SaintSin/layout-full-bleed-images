@@ -1,11 +1,11 @@
-@import 'global/reset.scss';
-@import 'global/fonts.css';
+@import 'global/reset.scss' layer(components);
+@import 'global/fonts.css' layer(components);
 
 /* A bit too opinionted */
 /* @import "open-props/normalize"; */
 
-@import 'global/variables.css';
-@import 'global/global-styles.css';
+@import 'global/variables.css' layer(components);
+@import 'global/global-styles.css' layer(components);
 
 /* CUBE CSS Compositions */
 @import 'compositions/box.css' layer(components);
