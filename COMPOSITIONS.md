@@ -27,10 +27,10 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <div class="wrapper">
-	<article class="flow" data-spacing="m">
-		<h1>Page Title</h1>
-		<p>Content with automatic spacing</p>
-	</article>
+  <article class="flow" data-spacing="m">
+    <h1>Page Title</h1>
+    <p>Content with automatic spacing</p>
+  </article>
 </div>
 ```
 
@@ -38,10 +38,10 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <div class="wrapper">
-	<div class="sidebar" style="--sidebar-width: 250px;">
-		<aside>Navigation</aside>
-		<main class="flow">Main content</main>
-	</div>
+  <div class="sidebar" style="--sidebar-width: 250px;">
+    <aside>Navigation</aside>
+    <main class="flow">Main content</main>
+  </div>
 </div>
 ```
 
@@ -49,11 +49,11 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <div class="wrapper">
-	<div class="grid" style="--grid-min-item-size: 300px;">
-		<article class="box">Card 1</article>
-		<article class="box">Card 2</article>
-		<article class="box">Card 3</article>
-	</div>
+  <div class="grid" style="--grid-min-item-size: 300px;">
+    <article class="box">Card 1</article>
+    <article class="box">Card 2</article>
+    <article class="box">Card 3</article>
+  </div>
 </div>
 ```
 
@@ -61,14 +61,14 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <section class="cover" style="--cover-min-height: 80vh;">
-	<header>
-		<img src="logo.svg" alt="Logo" />
-	</header>
-	<div class="center flow">
-		<h1>Welcome</h1>
-		<p>Hero description text</p>
-	</div>
-	<footer>Scroll down</footer>
+  <header>
+    <img src="logo.svg" alt="Logo" />
+  </header>
+  <div class="center flow">
+    <h1>Welcome</h1>
+    <p>Hero description text</p>
+  </div>
+  <footer>Scroll down</footer>
 </section>
 ```
 
@@ -76,17 +76,17 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <div class="wrapper">
-	<div class="reel" data-snap="true" style="--reel-item-width: 400px;">
-		<div class="frame" data-ratio="4:3">
-			<img src="photo1.jpg" alt="Gallery item 1" />
-		</div>
-		<div class="frame" data-ratio="4:3">
-			<img src="photo2.jpg" alt="Gallery item 2" />
-		</div>
-		<div class="frame" data-ratio="4:3">
-			<img src="photo3.jpg" alt="Gallery item 3" />
-		</div>
-	</div>
+  <div class="reel" data-snap="true" style="--reel-item-width: 400px;">
+    <div class="frame" data-ratio="4:3">
+      <img src="photo1.jpg" alt="Gallery item 1" />
+    </div>
+    <div class="frame" data-ratio="4:3">
+      <img src="photo2.jpg" alt="Gallery item 2" />
+    </div>
+    <div class="frame" data-ratio="4:3">
+      <img src="photo3.jpg" alt="Gallery item 3" />
+    </div>
+  </div>
 </div>
 ```
 
@@ -94,13 +94,13 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <div class="imposter-container">
-	<main>Page content</main>
-	<div class="imposter" data-centered="true" data-fixed="true">
-		<div class="box center">
-			<h2>Modal Title</h2>
-			<p>Modal content</p>
-		</div>
-	</div>
+  <main>Page content</main>
+  <div class="imposter" data-centered="true" data-fixed="true">
+    <div class="box center">
+      <h2>Modal Title</h2>
+      <p>Modal content</p>
+    </div>
+  </div>
 </div>
 ```
 
@@ -108,17 +108,17 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <nav class="wrapper">
-	<div
-		class="cluster"
-		style="--cluster-gap: 2rem; --cluster-justify: space-between;"
-	>
-		<a href="/" class="logo">Logo</a>
-		<div class="cluster">
-			<a href="/about">About</a>
-			<a href="/work">Work</a>
-			<a href="/contact">Contact</a>
-		</div>
-	</div>
+  <div
+    class="cluster"
+    style="--cluster-gap: 2rem; --cluster-justify: space-between;"
+  >
+    <a href="/" class="logo">Logo</a>
+    <div class="cluster">
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
 </nav>
 ```
 
@@ -126,14 +126,14 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <div class="wrapper">
-	<div class="frame" data-ratio="16:9">
-		<iframe
-			src="https://www.youtube.com/embed/..."
-			title="Video title"
-			allowfullscreen
-		>
-		</iframe>
-	</div>
+  <div class="frame" data-ratio="16:9">
+    <iframe
+      src="https://www.youtube.com/embed/..."
+      title="Video title"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
 </div>
 ```
 
@@ -141,9 +141,9 @@ This starter includes 14 composition utilities from [Every Layout](https://every
 
 ```html
 <div class="switcher" style="--switcher-threshold: 500px;">
-	<div>Horizontal on wide containers</div>
-	<div>Vertical on narrow containers</div>
-	<div>No media queries needed!</div>
+  <div>Horizontal on wide containers</div>
+  <div>Vertical on narrow containers</div>
+  <div>No media queries needed!</div>
 </div>
 ```
 
@@ -154,35 +154,35 @@ Compositions are designed to be **composed** together:
 ```html
 <!-- Article layout with sidebar -->
 <div class="wrapper">
-	<div class="sidebar">
-		<!-- Sidebar with stacked navigation -->
-		<aside class="stack">
-			<nav>Navigation</nav>
-			<div>Ads</div>
-		</aside>
+  <div class="sidebar">
+    <!-- Sidebar with stacked navigation -->
+    <aside class="stack">
+      <nav>Navigation</nav>
+      <div>Ads</div>
+    </aside>
 
-		<!-- Main content with flow -->
-		<article class="flow" data-spacing="l">
-			<h1>Article Title</h1>
+    <!-- Main content with flow -->
+    <article class="flow" data-spacing="l">
+      <h1>Article Title</h1>
 
-			<!-- Images in frames -->
-			<div class="frame" data-ratio="16:9">
-				<img src="hero.jpg" alt="Hero" />
-			</div>
+      <!-- Images in frames -->
+      <div class="frame" data-ratio="16:9">
+        <img src="hero.jpg" alt="Hero" />
+      </div>
 
-			<!-- Centered content -->
-			<div class="center">
-				<p>Narrower reading width</p>
-			</div>
+      <!-- Centered content -->
+      <div class="center">
+        <p>Narrower reading width</p>
+      </div>
 
-			<!-- Horizontal tags -->
-			<div class="cluster">
-				<span class="tag">CSS</span>
-				<span class="tag">Design</span>
-				<span class="tag">Web</span>
-			</div>
-		</article>
-	</div>
+      <!-- Horizontal tags -->
+      <div class="cluster">
+        <span class="tag">CSS</span>
+        <span class="tag">Design</span>
+        <span class="tag">Web</span>
+      </div>
+    </article>
+  </div>
 </div>
 ```
 
@@ -209,8 +209,8 @@ Set properties inline or in your CSS:
 
 /* In CSS */
 .my-sidebar {
-	--sidebar-width: 300px;
-	--sidebar-gap: 2rem;
+  --sidebar-width: 300px;
+  --sidebar-gap: 2rem;
 }
 ```
 

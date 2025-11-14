@@ -1,27 +1,27 @@
-@import "global/reset.scss";
-@import "global/fonts.css";
+@import 'global/reset.scss';
+@import 'global/fonts.css';
 
 /* A bit too opinionted */
 /* @import "open-props/normalize"; */
 
-@import "global/variables.css";
-@import "global/global-styles.css";
+@import 'global/variables.css';
+@import 'global/global-styles.css';
 
 /* CUBE CSS Compositions */
-@import "compositions/box.css" layer(components);
-@import "compositions/center.css" layer(components);
-@import "compositions/cluster.css" layer(components);
-@import "compositions/cover.css" layer(components);
-@import "compositions/flow.css" layer(components);
-@import "compositions/frame.css" layer(components);
-@import "compositions/grid.css" layer(components);
-@import "compositions/icon.css" layer(components);
-@import "compositions/imposter.css" layer(components);
-@import "compositions/reel.css" layer(components);
-@import "compositions/sidebar.css" layer(components);
-@import "compositions/stack.css" layer(components);
-@import "compositions/switcher.css" layer(components);
-@import "compositions/wrapper.css" layer(components);
+@import 'compositions/box.css' layer(components);
+@import 'compositions/center.css' layer(components);
+@import 'compositions/cluster.css' layer(components);
+@import 'compositions/cover.css' layer(components);
+@import 'compositions/flow.css' layer(components);
+@import 'compositions/frame.css' layer(components);
+@import 'compositions/grid.css' layer(components);
+@import 'compositions/icon.css' layer(components);
+@import 'compositions/imposter.css' layer(components);
+@import 'compositions/reel.css' layer(components);
+@import 'compositions/sidebar.css' layer(components);
+@import 'compositions/stack.css' layer(components);
+@import 'compositions/switcher.css' layer(components);
+@import 'compositions/wrapper.css' layer(components);
 
 /* Utilities */
-@import "utilities/visually-hidden.css" layer(components);
+@import 'utilities/visually-hidden.css' layer(components);

@@ -20,24 +20,24 @@ Use data-centered attribute to specify which child to center.
 */
 
 .cover {
-	display: flex;
-	flex-direction: column;
-	min-block-size: var(--cover-min-height, 100vh);
-	padding: var(--cover-padding, 1rem);
+  display: flex;
+  flex-direction: column;
+  padding: var(--cover-padding, 1rem);
+  min-block-size: var(--cover-min-height, 100vh);
 }
 
 .cover > * {
-	margin-block: var(--cover-gap, 1rem);
+  margin-block: var(--cover-gap, 1rem);
 }
 
 /* Center the principal element */
 .cover > :is(h1, h2, h3, h4, main) {
-	margin-block: auto;
+  margin-block: auto;
 }
 
 /* Use data attribute for custom centered element */
-.cover[data-centered="1"] > :first-child,
-.cover[data-centered="2"] > :nth-child(2),
-.cover[data-centered="3"] > :nth-child(3) {
-	margin-block: auto;
+.cover[data-centered='1'] > :first-child,
+.cover[data-centered='2'] > :nth-child(2),
+.cover[data-centered='3'] > :nth-child(3) {
+  margin-block: auto;
 }

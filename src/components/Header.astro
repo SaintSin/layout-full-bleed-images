@@ -10,39 +10,39 @@ const menu = {
 ---
 
 <header class="header">
-	<nav class="wrapper">
-		{
-			menu.main.map((item) => {
-				const isActive = item.url === pathname;
-				return isActive ? (
-					<a href={item.url} data-astro-prefetch class="active">
-						{item.name}
-					</a>
-				) : (
-					<a href={item.url} data-astro-prefetch>
-						{item.name}
-					</a>
-				);
-			})
-		}
-	</nav>
+  <nav class="wrapper">
+    {
+      menu.main.map((item) => {
+        const isActive = item.url === pathname;
+        return isActive ? (
+          <a href={item.url} data-astro-prefetch class="active">
+            {item.name}
+          </a>
+        ) : (
+          <a href={item.url} data-astro-prefetch>
+            {item.name}
+          </a>
+        );
+      })
+    }
+  </nav>
 </header>
 <style>
-	.header {
-		background: var(--stone-3);
-		padding-block: var(--size-fluid-1);
-		position: sticky;
-		top: 0;
-		z-index: 1000;
-	}
-	a {
-		display: inline-block;
-		margin-inline: 4px;
-		text-decoration: none;
-		color: var(--stone-11);
-	}
-	.active {
-		font-weight: bold;
-		text-decoration: underline;
-	}
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--stone-3);
+    padding-block: var(--size-fluid-1);
+  }
+  a {
+    display: inline-block;
+    margin-inline: 4px;
+    color: var(--stone-11);
+    text-decoration: none;
+  }
+  .active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
 </style>

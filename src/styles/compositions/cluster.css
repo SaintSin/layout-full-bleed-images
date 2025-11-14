@@ -10,9 +10,9 @@ CUSTOM PROPERTIES:
 */
 
 .cluster {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--cluster-gap, var(--space-s, 0.5rem));
-	justify-content: var(--cluster-justify, flex-start);
-	align-items: var(--cluster-align, center);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: var(--cluster-justify, flex-start);
+  align-items: var(--cluster-align, center);
+  gap: var(--cluster-gap, var(--space-s, 0.5rem));
 }

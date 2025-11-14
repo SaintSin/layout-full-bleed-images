@@ -17,28 +17,28 @@ USAGE:
 */
 
 .sidebar {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--sidebar-gap, var(--space-m, 1rem));
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sidebar-gap, var(--space-m, 1rem));
 }
 
 .sidebar > :first-child {
-	flex-basis: var(--sidebar-width, 20rem);
-	flex-grow: 1;
+  flex-grow: 1;
+  flex-basis: var(--sidebar-width, 20rem);
 }
 
 .sidebar > :last-child {
-	flex-basis: 0;
-	flex-grow: 999;
-	min-inline-size: var(--sidebar-threshold, 50%);
+  flex-grow: 999;
+  flex-basis: 0;
+  min-inline-size: var(--sidebar-threshold, 50%);
 }
 
 /* Right-aligned sidebar variant */
-.sidebar[data-side="right"] {
-	flex-direction: row-reverse;
+.sidebar[data-side='right'] {
+  flex-direction: row-reverse;
 }
 
 /* No stretch variant - don't stretch items */
-.sidebar[data-stretch="false"] {
-	align-items: flex-start;
+.sidebar[data-stretch='false'] {
+  align-items: flex-start;
 }

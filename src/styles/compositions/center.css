@@ -15,15 +15,15 @@ USAGE:
 */
 
 .center {
-	box-sizing: content-box;
-	max-inline-size: var(--center-max-width, 60ch);
-	margin-inline: auto;
-	padding-inline: var(--center-padding, var(--space-m, 1rem));
+  box-sizing: content-box;
+  margin-inline: auto;
+  padding-inline: var(--center-padding, var(--space-m, 1rem));
+  max-inline-size: var(--center-max-width, 60ch);
 }
 
 /* Center intrinsic (naturally narrower) children */
-.center[data-intrinsic="true"] {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.center[data-intrinsic='true'] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -84,10 +84,10 @@ A modern Astro starter showcasing **full-bleed split-screen layouts** with respo
 TypeScript path aliases for cleaner imports:
 
 ```typescript
-import Layout from "@layouts/Layout.astro";
-import { MetaData } from "@lib/index";
-import image from "@images/photo.jpg";
-import "@styles/style.css";
+import Layout from '@layouts/Layout.astro';
+import { MetaData } from '@lib/index';
+import image from '@images/photo.jpg';
+import '@styles/style.css';
 
 // Available aliases:
 // @components/* → src/components/*
@@ -120,11 +120,11 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="center" style="--center-max-width: 70ch;">
-	<p>Centered content</p>
+  <p>Centered content</p>
 </div>
 <!-- Variant: Center intrinsic children -->
 <div class="center" data-intrinsic="true">
-	<button>Centered button</button>
+  <button>Centered button</button>
 </div>
 ```
 
@@ -132,9 +132,9 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <nav class="cluster" style="--cluster-gap: 1rem;">
-	<a href="/">Home</a>
-	<a href="/about">About</a>
-	<a href="/contact">Contact</a>
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
 </nav>
 ```
 
@@ -142,9 +142,9 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="cover" style="--cover-min-height: 100vh;">
-	<header>Header</header>
-	<main>Vertically centered content</main>
-	<footer>Footer</footer>
+  <header>Header</header>
+  <main>Vertically centered content</main>
+  <footer>Footer</footer>
 </div>
 ```
 
@@ -152,9 +152,9 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <article class="flow" data-spacing="l">
-	<h2>Heading</h2>
-	<p>Automatic spacing between elements</p>
-	<p>Consistent vertical rhythm</p>
+  <h2>Heading</h2>
+  <p>Automatic spacing between elements</p>
+  <p>Consistent vertical rhythm</p>
 </article>
 <!-- Spacing variants: s, m, l, xl -->
 ```
@@ -164,11 +164,11 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 ```html
 <!-- 16:9 widescreen video -->
 <div class="frame" data-ratio="16:9">
-	<iframe src="..." title="Video"></iframe>
+  <iframe src="..." title="Video"></iframe>
 </div>
 <!-- Square image -->
 <div class="frame" data-ratio="1:1">
-	<img src="..." alt="..." />
+  <img src="..." alt="..." />
 </div>
 <!-- Ratios: 1:1, 4:3, 16:9, 21:9, 9:16 -->
 ```
@@ -178,14 +178,14 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 ```html
 <!-- Auto-fill grid -->
 <div class="grid" style="--grid-min-item-size: 20rem;">
-	<div>Item 1</div>
-	<div>Item 2</div>
-	<div>Item 3</div>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
 </div>
 <!-- Variants: 50-50, thirds, twelfths, lg:10/2 -->
 <div class="grid" data-layout="50-50">
-	<div>Left 50%</div>
-	<div>Right 50%</div>
+  <div>Left 50%</div>
+  <div>Right 50%</div>
 </div>
 ```
 
@@ -193,10 +193,10 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="imposter-container">
-	<img src="background.jpg" alt="Background" />
-	<div class="imposter" data-centered="true">
-		<p>Overlay text</p>
-	</div>
+  <img src="background.jpg" alt="Background" />
+  <div class="imposter" data-centered="true">
+    <p>Overlay text</p>
+  </div>
 </div>
 <!-- Variants: data-fixed, data-centered, data-breakout -->
 ```
@@ -205,10 +205,10 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="reel" data-snap="true" style="--reel-item-width: 30ch;">
-	<article>Card 1</article>
-	<article>Card 2</article>
-	<article>Card 3</article>
-	<article>Card 4</article>
+  <article>Card 1</article>
+  <article>Card 2</article>
+  <article>Card 3</article>
+  <article>Card 4</article>
 </div>
 <!-- Variants: data-snap, data-scrollbar -->
 ```
@@ -217,13 +217,13 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="sidebar" style="--sidebar-width: 20rem;">
-	<aside>Sidebar content</aside>
-	<main>Main content (grows to fill)</main>
+  <aside>Sidebar content</aside>
+  <main>Main content (grows to fill)</main>
 </div>
 <!-- Right-aligned variant -->
 <div class="sidebar" data-side="right">
-	<main>Main content</main>
-	<aside>Right sidebar</aside>
+  <main>Main content</main>
+  <aside>Right sidebar</aside>
 </div>
 ```
 
@@ -231,9 +231,9 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="stack" style="--stack-space: 2rem;">
-	<header>Header</header>
-	<main>Content</main>
-	<footer>Footer pushed to bottom</footer>
+  <header>Header</header>
+  <main>Content</main>
+  <footer>Footer pushed to bottom</footer>
 </div>
 ```
 
@@ -241,9 +241,9 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="switcher" style="--switcher-threshold: 30rem;">
-	<div>Switches from horizontal...</div>
-	<div>...to vertical layout...</div>
-	<div>...based on container width</div>
+  <div>Switches from horizontal...</div>
+  <div>...to vertical layout...</div>
+  <div>...based on container width</div>
 </div>
 ```
 
@@ -251,7 +251,7 @@ This project uses CUBE (Composition, Utility, Block, Exception) CSS for scalable
 
 ```html
 <div class="wrapper" style="--wrapper-max-width: 80ch;">
-	<p>Content with max-width and auto margins</p>
+  <p>Content with max-width and auto margins</p>
 </div>
 ```
 
@@ -315,11 +315,11 @@ Example usage:
 
 ```astro
 <section class="full-width-split-screen">
-	<div class="primary">
-		<h2>Text Content</h2>
-		<p>Text that determines image height...</p>
-	</div>
-	<Image src={photo} layout="full-width" alt="..." />
+  <div class="primary">
+    <h2>Text Content</h2>
+    <p>Text that determines image height...</p>
+  </div>
+  <Image src={photo} layout="full-width" alt="..." />
 </section>
 
 <script src="@scripts/image-sizes.ts"></script>
@@ -381,10 +381,10 @@ Every page uses structured metadata:
 
 ```typescript
 const metaData: MetaData = {
-	title: "Page Title - Site Name",
-	description: "Compelling description for search engines and social media",
-	image: "/images/social/page-specific.jpg", // Optional
-	canonicalURL: Astro.url, // Optional override
+  title: 'Page Title - Site Name',
+  description: 'Compelling description for search engines and social media',
+  image: '/images/social/page-specific.jpg', // Optional
+  canonicalURL: Astro.url, // Optional override
 };
 ```
 

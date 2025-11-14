@@ -9,20 +9,20 @@ CUSTOM PROPERTIES:
 */
 
 .stack {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .stack > * {
-	margin-block: 0;
+  margin-block: 0;
 }
 
 .stack > * + * {
-	margin-block-start: var(--stack-space, 1.5rem);
+  margin-block-start: var(--stack-space, 1.5rem);
 }
 
 /* Split stack: push last item to bottom */
 .stack > :nth-child(var(--stack-split)) {
-	margin-block-end: auto;
+  margin-block-end: auto;
 }

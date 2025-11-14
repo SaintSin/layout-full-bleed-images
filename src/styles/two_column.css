@@ -2,56 +2,56 @@
 /* In Astro this must be set as a global style, otherwise it doesn't compile correctly */
 
 img {
-	display: block;
+  display: block;
 }
 .full-width-split-screen {
-	padding-block: 0;
+  padding-block: 0;
 }
 .full-width-split-screen img {
-	/* outline: 2px solid red; */
-	object-fit: cover;
+  /* outline: 2px solid red; */
+  object-fit: cover;
 }
 
 .full-width-split-screen > :not(img) {
-	padding-inline: var(--wrapper-padding-inline);
-	padding-block: var(--wrapper-padding-inline);
+  padding-inline: var(--wrapper-padding-inline);
+  padding-block: var(--wrapper-padding-inline);
 }
 @media (min-width: 600px) {
-	.full-width-split-screen {
-		display: grid;
-		grid-template-columns:
-			minmax(var(--wrapper-padding-inline), 1fr)
-			minmax(0, calc(var(--wrapper-max-width) / 2))
-			minmax(0, calc(var(--wrapper-max-width) / 2))
-			minmax(var(--wrapper-padding-inline), 1fr);
-		position: relative;
-	}
-	.full-width-split-screen > img:first-child {
-		grid-column: 1 / 3;
-	}
-	.full-width-split-screen > img:last-child {
-		grid-column: 3 / -1;
-	}
-	.full-width-split-screen > :not(img) {
-		display: grid;
-		align-content: start;
-	}
-	.full-width-split-screen > :not(img):first-child {
-		grid-column: 2 / 3;
-	}
-	.full-width-split-screen > :not(img):last-child {
-		grid-column: 3 / 4;
-	}
-	.full-width-split-screen > :not(img)::before {
-		content: " ";
-		position: absolute;
-		inset: 0;
-		background: inherit;
-	}
-	.full-width-split-screen > :not(img):first-child::before {
-		grid-column: 1 / 2;
-	}
-	.full-width-split-screen > :not(img):last-child::before {
-		grid-column: 4 / 5;
-	}
+  .full-width-split-screen {
+    display: grid;
+    position: relative;
+    grid-template-columns:
+      minmax(var(--wrapper-padding-inline), 1fr)
+      minmax(0, calc(var(--wrapper-max-width) / 2))
+      minmax(0, calc(var(--wrapper-max-width) / 2))
+      minmax(var(--wrapper-padding-inline), 1fr);
+  }
+  .full-width-split-screen > img:first-child {
+    grid-column: 1 / 3;
+  }
+  .full-width-split-screen > img:last-child {
+    grid-column: 3 / -1;
+  }
+  .full-width-split-screen > :not(img) {
+    display: grid;
+    align-content: start;
+  }
+  .full-width-split-screen > :not(img):first-child {
+    grid-column: 2 / 3;
+  }
+  .full-width-split-screen > :not(img):last-child {
+    grid-column: 3 / 4;
+  }
+  .full-width-split-screen > :not(img)::before {
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    content: ' ';
+  }
+  .full-width-split-screen > :not(img):first-child::before {
+    grid-column: 1 / 2;
+  }
+  .full-width-split-screen > :not(img):last-child::before {
+    grid-column: 4 / 5;
+  }
 }

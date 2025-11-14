@@ -12,21 +12,21 @@ VARIANTS:
 --flow-space-l: Large spacing
 */
 .flow > * + * {
-	margin-block-start: var(--flow-space, 1em);
+  margin-block-start: var(--flow-space, 1em);
 }
 
-.flow[data-spacing="s"] {
-	--flow-space: var(--space-s, 0.5rem);
+.flow[data-spacing='s'] {
+  --flow-space: var(--space-s, 0.5rem);
 }
 
-.flow[data-spacing="m"] {
-	--flow-space: var(--space-m, 1rem);
+.flow[data-spacing='m'] {
+  --flow-space: var(--space-m, 1rem);
 }
 
-.flow[data-spacing="l"] {
-	--flow-space: var(--space-l, 2rem);
+.flow[data-spacing='l'] {
+  --flow-space: var(--space-l, 2rem);
 }
 
-.flow[data-spacing="xl"] {
-	--flow-space: var(--space-xl, 3rem);
+.flow[data-spacing='xl'] {
+  --flow-space: var(--space-xl, 3rem);
 }
