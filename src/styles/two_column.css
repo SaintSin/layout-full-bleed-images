@@ -1,57 +1,129 @@
 /* Two Column Layout */
 /* In Astro this must be set as a global style, otherwise it doesn't compile correctly */
 
-img {
-  display: block;
-}
-.full-width-split-screen {
-  padding-block: 0;
-}
-.full-width-split-screen img {
-  /* outline: 2px solid red; */
-  object-fit: cover;
+@layer base, variants;
+
+@layer base {
+  img {
+    display: block;
+  }
+  .full-width-split-screen {
+    padding-block: 0;
+  }
+  .full-width-split-screen img {
+    /* outline: 2px solid red; */
+    object-fit: cover;
+  }
+
+  .full-width-split-screen > :not(img) {
+    padding-inline: var(--wrapper-padding-inline);
+    padding-block: var(--wrapper-padding-inline);
+  }
 }
 
-.full-width-split-screen > :not(img) {
-  padding-inline: var(--wrapper-padding-inline);
-  padding-block: var(--wrapper-padding-inline);
-}
-@media (min-width: 600px) {
-  .full-width-split-screen {
+@layer variants {
+  /* Overlay variant - mobile styles */
+  .overlay {
     display: grid;
     position: relative;
-    grid-template-columns:
-      minmax(var(--wrapper-padding-inline), 1fr)
-      minmax(0, calc(var(--wrapper-max-width) / 2))
-      minmax(0, calc(var(--wrapper-max-width) / 2))
-      minmax(var(--wrapper-padding-inline), 1fr);
   }
-  .full-width-split-screen > img:first-child {
-    grid-column: 1 / 3;
+  .overlay > img:first-of-type {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    min-height: 50vh;
   }
-  .full-width-split-screen > img:last-child {
-    grid-column: 3 / -1;
-  }
-  .full-width-split-screen > :not(img) {
+  .overlay > div:first-of-type {
     display: grid;
+    grid-row: 1;
+    grid-column: 1;
     align-content: start;
+    z-index: 1;
   }
-  .full-width-split-screen > :not(img):first-child {
-    grid-column: 2 / 3;
+  .overlay > img:last-of-type {
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;
+    min-height: 50vh;
   }
-  .full-width-split-screen > :not(img):last-child {
-    grid-column: 3 / 4;
+  .overlay > div:last-of-type {
+    display: grid;
+    grid-row: 2;
+    grid-column: 1;
+    align-content: start;
+    z-index: 1;
   }
-  .full-width-split-screen > :not(img)::before {
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    content: ' ';
+}
+
+@layer base {
+  @media (min-width: 600px) {
+    .full-width-split-screen {
+      display: grid;
+      position: relative;
+      grid-template-columns:
+        minmax(var(--wrapper-padding-inline), 1fr)
+        minmax(0, calc(var(--wrapper-max-width) / 2))
+        minmax(0, calc(var(--wrapper-max-width) / 2))
+        minmax(var(--wrapper-padding-inline), 1fr);
+    }
+    :where(.full-width-split-screen) > img:first-child {
+      grid-column: 1 / 3;
+    }
+    :where(.full-width-split-screen) > img:last-child {
+      grid-column: 3 / -1;
+    }
+    :where(.full-width-split-screen) > :not(img) {
+      display: grid;
+      align-content: start;
+    }
+    :where(.full-width-split-screen) > :not(img):first-child {
+      grid-column: 2 / 3;
+    }
+    :where(.full-width-split-screen) > :not(img):last-child {
+      grid-column: 3 / 4;
+    }
+    :where(.full-width-split-screen) > :not(img)::before {
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      content: ' ';
+    }
+    :where(.full-width-split-screen) > :not(img):first-child::before {
+      grid-column: 1 / 2;
+    }
+    :where(.full-width-split-screen) > :not(img):last-child::before {
+      grid-column: 4 / 5;
+    }
   }
-  .full-width-split-screen > :not(img):first-child::before {
-    grid-column: 1 / 2;
-  }
-  .full-width-split-screen > :not(img):last-child::before {
-    grid-column: 4 / 5;
+}
+
+@layer variants {
+  @media (min-width: 600px) {
+    /* Overlay variant - stacks image and content in same grid area */
+    .overlay > img {
+      grid-row: 1;
+      height: 100%;
+    }
+    .overlay > img:first-of-type {
+      grid-column: 1 / 3;
+    }
+    .overlay > img:last-of-type {
+      grid-column: 3 / -1;
+    }
+    .overlay > div {
+      display: grid;
+      grid-row: 1;
+      align-content: start;
+      z-index: 1;
+    }
+    .overlay > div:first-of-type {
+      grid-column: 2 / 3;
+    }
+    .overlay > div:last-of-type {
+      grid-column: 3 / 4;
+    }
+    .overlay > div::before {
+      display: none;
+    }
   }
 }
