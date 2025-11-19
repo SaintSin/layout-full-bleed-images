@@ -1,0 +1,75 @@
+---
+// SectionSample.astro
+import { Image } from 'astro:assets';
+import image1 from '@images/placeholders/cat_1.jpg';
+import image2 from '@images/placeholders/cat_2.jpg';
+import '@styles/two_column.css';
+---
+
+<section class="full-width-split-screen">
+  <div class="primary">
+    <h2>A Picture 1</h2>
+    <p>
+      Sunt nisi aute pariatur labore tempor magna dolore eu. Cillum pariatur
+      anim commodo sint exercitation sint velit. Veniam dolore magna enim velit
+      aute aute dolor irure tempor.
+    </p>
+    <p>
+      Aliqua deserunt laboris eiusmod et id occaecat reprehenderit adipisicing
+      enim amet incididunt commodo veniam nostrud. Irure labore laborum anim
+      velit ullamco. In irure esse Lorem dolore et.
+    </p>
+    <p>
+      Nulla non minim sunt anim tempor adipisicing nisi anim incididunt enim.
+      Deserunt est qui ex esse qui laborum est dolore cillum. Pariatur enim
+      irure exercitation magna cillum id exercitation nisi deserunt do consequat
+      quis voluptate. Commodo ut ad pariatur duis sunt velit veniam minim.
+    </p>
+  </div>
+  <Image
+    src={image1}
+    format={'avif'}
+    quality={40}
+    alt="Cat lying down staring at camera"
+    layout="full-width"
+  />
+</section>
+
+<section class="full-width-split-screen">
+  <Image
+    src={image2}
+    format={'avif'}
+    quality={40}
+    alt="A cute kitten"
+    loading={'eager'}
+    layout="full-width"
+  />
+  <div class="secondary">
+    <h2>A Picture 2</h2>
+    <p>
+      Et esse laborum minim occaecat minim dolor nulla elit officia ut ea id.
+      Lorem deserunt officia nulla dolor ullamco in Lorem Lorem eu. Ad sunt do
+      laboris id exercitation enim. Cupidatat nisi ad incididunt ullamco
+      consectetur est aliquip mollit tempor ex Lorem. Veniam ad mollit veniam
+      esse officia esse commodo elit aute nisi enim veniam laboris sit. Enim
+      enim officia Lorem ipsum est qui incididunt incididunt sit in eiusmod.
+    </p>
+    <p>
+      Nulla non minim sunt anim tempor adipisicing nisi anim incididunt enim.
+      Deserunt est qui ex esse qui laborum est dolore cillum. Pariatur enim
+      irure exercitation magna cillum id exercitation nisi deserunt do consequat
+      quis voluptate. Commodo ut ad pariatur duis sunt velit veniam minim.
+    </p>
+
+    <p>
+      Do sunt ex do veniam consectetur enim. Ex ut irure excepteur dolor duis et
+      mollit amet proident velit cupidatat proident in eiusmod. Aliqua aliquip
+      mollit sit nisi amet reprehenderit Lorem eiusmod magna occaecat magna.
+      Duis amet aliquip dolore dolore voluptate consectetur. Deserunt commodo do
+      laboris elit culpa sint ut. Deserunt reprehenderit ex pariatur deserunt
+      aute laborum reprehenderit aliquip aliqua excepteur ut enim nisi.
+    </p>
+  </div>
+</section>
+
+<script src="@scripts/image-sizes.ts"></script>

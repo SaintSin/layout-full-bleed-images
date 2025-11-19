@@ -34,15 +34,9 @@ let isInitialized = false;
 
 function matchSplitScreenImageHeights(): void {
   try {
-    // Early return for mobile - no height matching needed
     const isDesktop = window.matchMedia(
       `(min-width: ${DESKTOP_BREAKPOINT}px)`,
     ).matches;
-    if (!isDesktop) {
-      // Reset any heights that might have been set
-      resetAllHeights();
-      return;
-    }
 
     const splitScreens = document.querySelectorAll<HTMLElement>(
       '.full-width-split-screen',
@@ -50,6 +44,17 @@ function matchSplitScreenImageHeights(): void {
     if (splitScreens.length === 0) return; // No containers found
 
     for (const container of splitScreens) {
+      const isOverlay = container.classList.contains('overlay');
+
+      if (!isDesktop && !isOverlay) {
+        // Reset heights for non-overlay on mobile
+        const cachedElements = containerCache.get(container);
+        if (cachedElements) {
+          resetElementHeights(cachedElements.images, cachedElements.pictures);
+        }
+        continue;
+      }
+
       processContainer(container);
     }
   } catch (error) {
@@ -84,17 +89,50 @@ function processContainer(container: HTMLElement): void {
     return;
   }
 
-  // Get the maximum height of all non-image elements
-  let maxContentHeight = 0;
-  for (const element of nonImageElements) {
-    const rect = element.getBoundingClientRect();
-    maxContentHeight = Math.max(maxContentHeight, rect.height);
-  }
+  const isOverlay = container.classList.contains('overlay');
 
-  // Apply the height to all images and pictures (rounded to integer)
-  if (maxContentHeight > 0) {
-    const roundedHeight = Math.round(maxContentHeight);
-    applyHeights(images, pictures, roundedHeight);
+  if (isOverlay) {
+    // For overlay: match each image to its corresponding div
+    const allChildren = Array.from(container.children);
+
+    for (let i = 0; i < allChildren.length; i++) {
+      const child = allChildren[i];
+
+      if (isImageElement(child) || isPictureElement(child)) {
+        // Find the next non-image sibling
+        let correspondingDiv: HTMLElement | null = null;
+        for (let j = i + 1; j < allChildren.length; j++) {
+          if (isNonImageElement(allChildren[j])) {
+            correspondingDiv = allChildren[j] as HTMLElement;
+            break;
+          }
+        }
+
+        if (correspondingDiv) {
+          const divHeight = Math.round(correspondingDiv.getBoundingClientRect().height);
+          if (divHeight > 0) {
+            if (isImageElement(child)) {
+              applyHeights([child], [], divHeight);
+            } else if (isPictureElement(child)) {
+              applyHeights([], [child], divHeight);
+            }
+          }
+        }
+      }
+    }
+  } else {
+    // Standard behavior: use max height for all images
+    let maxContentHeight = 0;
+    for (const element of nonImageElements) {
+      const rect = element.getBoundingClientRect();
+      maxContentHeight = Math.max(maxContentHeight, rect.height);
+    }
+
+    // Apply the height to all images and pictures (rounded to integer)
+    if (maxContentHeight > 0) {
+      const roundedHeight = Math.round(maxContentHeight);
+      applyHeights(images, pictures, roundedHeight);
+    }
   }
 }
 

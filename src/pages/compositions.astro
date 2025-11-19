@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import type { MetaData } from '@lib/index';
-import Layout from '@layouts/Layout.astro';
 import image1 from '@images/placeholders/cat_1.jpg';
 import image2 from '@images/placeholders/cat_2.jpg';
+import SectionSample from '@components/SectionSample.astro';
+import Layout from '@layouts/Layout.astro';
+import type { MetaData } from '@lib/index';
 import '@styles/two_column.css';
 
 const metaData: MetaData = {
@@ -14,6 +15,7 @@ const metaData: MetaData = {
 ---
 
 <Layout metaData={metaData}>
+  <SectionSample/>
   <!-- Cover: Hero section with vertical centering -->
   <section
     class="cover"
