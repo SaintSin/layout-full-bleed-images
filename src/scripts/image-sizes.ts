@@ -109,7 +109,9 @@ function processContainer(container: HTMLElement): void {
         }
 
         if (correspondingDiv) {
-          const divHeight = Math.round(correspondingDiv.getBoundingClientRect().height);
+          const divHeight = Math.round(
+            correspondingDiv.getBoundingClientRect().height,
+          );
           if (divHeight > 0) {
             if (isImageElement(child)) {
               applyHeights([child], [], divHeight);

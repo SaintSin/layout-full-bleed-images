@@ -5,7 +5,6 @@ import image2 from '@images/placeholders/cat_2.jpg';
 import SectionSample from '@components/SectionSample.astro';
 import Layout from '@layouts/Layout.astro';
 import type { MetaData } from '@lib/index';
-import '@styles/two_column.css';
 
 const metaData: MetaData = {
   title: 'CUBE CSS Compositions Demo - Layout Bleeds',
@@ -15,7 +14,7 @@ const metaData: MetaData = {
 ---
 
 <Layout metaData={metaData}>
-  <SectionSample/>
+  <SectionSample />
   <!-- Cover: Hero section with vertical centering -->
   <section
     class="cover"
@@ -574,6 +573,12 @@ const metaData: MetaData = {
 </Layout>
 
 <style>
+  :root {
+    --wrapper-padding-inline: var(--size-fluid-4);
+    --wrapper-max-width: 120ch;
+    --section-padding-block: var(--size-fluid-4);
+    --paragraph-max-width: 60ch;
+  }
   * {
     line-height: var(--font-lineheight-3);
     font-family: var(--font-sans);
