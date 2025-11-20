@@ -114,4 +114,22 @@
       display: none;
     }
   }
+
+  @media (min-width: 600px) {
+    /* Contained variant - images stay in their column (no bleed) */
+    .full-width-split-screen.contained > img:first-child {
+      grid-column: 2 / 3;
+      padding-inline-start: var(--wrapper-padding-inline);
+    }
+    .full-width-split-screen.contained > img:last-child {
+      grid-column: 3 / 4;
+      padding-inline-end: var(--wrapper-padding-inline);
+    }
+
+    /* Centered variant - images span both center columns, aligned with text edges */
+    .full-width-split-screen.centered > img {
+      grid-column: 2 / 4;
+      padding-inline-start: var(--wrapper-padding-inline);
+    }
+  }
 }

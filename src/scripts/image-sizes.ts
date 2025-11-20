@@ -45,9 +45,19 @@ function matchSplitScreenImageHeights(): void {
 
     for (const container of splitScreens) {
       const isOverlay = container.classList.contains('overlay');
+      const isCentered = container.classList.contains('centered');
 
       if (!isDesktop && !isOverlay) {
         // Reset heights for non-overlay on mobile
+        const cachedElements = containerCache.get(container);
+        if (cachedElements) {
+          resetElementHeights(cachedElements.images, cachedElements.pictures);
+        }
+        continue;
+      }
+
+      if (isCentered) {
+        // Skip height matching for centered images - let them use natural aspect ratio
         const cachedElements = containerCache.get(container);
         if (cachedElements) {
           resetElementHeights(cachedElements.images, cachedElements.pictures);
