@@ -1,0 +1,15 @@
+/* 
+VISUALLY HIDDEN UTILITY
+Info: https://piccalil.li/quick-tip/visually-hidden/ 
+*/
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 1px;
+  height: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}

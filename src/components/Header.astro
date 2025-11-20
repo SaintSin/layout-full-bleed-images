@@ -1,0 +1,46 @@
+---
+const { pathname } = Astro.url;
+const menu = {
+  main: [
+    { name: 'Home', url: '/' },
+    { name: 'Two', url: '/two/' },
+    { name: 'Three', url: '/three/' },
+    { name: 'Comp.', url: '/compositions/' },
+  ],
+};
+---
+
+<header class="header">
+  <nav class="wrapper">
+    {
+      menu.main.map((item) => (
+        <a
+          href={item.url}
+          data-astro-prefetch
+          class={pathname === item.url ? 'active--exact' : ''}
+        >
+          {item.name}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--stone-3);
+    padding-block: var(--size-fluid-1);
+  }
+  a {
+    display: inline-block;
+    margin-inline: 4px;
+    color: var(--stone-11);
+    text-decoration: none;
+  }
+  .active--exact {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+</style>

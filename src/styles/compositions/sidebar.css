@@ -1,0 +1,44 @@
+/*
+SIDEBAR COMPOSITION
+Creates a flexible sidebar layout that switches to stack on smaller screens
+Based on: https://every-layout.dev/layouts/sidebar/
+
+CUSTOM PROPERTIES:
+--sidebar-gap: Space between sidebar and content (default: var(--space-m))
+--sidebar-width: Preferred width of sidebar (default: 20rem)
+--sidebar-threshold: Min width before wrapping (default: 50%)
+--sidebar-side: Which side for sidebar - left or right (default: left)
+
+USAGE:
+<div class="sidebar">
+  <aside>Sidebar content</aside>
+  <main>Main content</main>
+</div>
+*/
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sidebar-gap, var(--space-m, 1rem));
+}
+
+.sidebar > :first-child {
+  flex-grow: 1;
+  flex-basis: var(--sidebar-width, 20rem);
+}
+
+.sidebar > :last-child {
+  flex-grow: 999;
+  flex-basis: 0;
+  min-inline-size: var(--sidebar-threshold, 50%);
+}
+
+/* Right-aligned sidebar variant */
+.sidebar[data-side='right'] {
+  flex-direction: row-reverse;
+}
+
+/* No stretch variant - don't stretch items */
+.sidebar[data-stretch='false'] {
+  align-items: flex-start;
+}

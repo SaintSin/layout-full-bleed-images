@@ -1,0 +1,69 @@
+/*
+REEL COMPOSITION
+Horizontal scrolling container with snap points
+Based on: https://every-layout.dev/layouts/reel/
+
+CUSTOM PROPERTIES:
+--reel-gap: Space between items (default: var(--space-m))
+--reel-item-width: Width of each item (default: auto)
+--reel-height: Height of reel container (default: auto)
+
+USAGE:
+<div class="reel">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+*/
+
+.reel {
+  display: flex;
+  gap: var(--reel-gap, var(--space-m, 1rem));
+  block-size: var(--reel-height, auto);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-color: var(--color-scrollbar-thumb, #999)
+    var(--color-scrollbar-track, transparent);
+}
+
+.reel::-webkit-scrollbar {
+  block-size: 1rem;
+}
+
+.reel::-webkit-scrollbar-track {
+  background-color: var(--color-scrollbar-track, transparent);
+}
+
+.reel::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    var(--color-scrollbar-track, transparent) 0,
+    var(--color-scrollbar-track, transparent) 0.25rem,
+    var(--color-scrollbar-thumb, #999) 0.25rem,
+    var(--color-scrollbar-thumb, #999) 0.75rem,
+    var(--color-scrollbar-track, transparent) 0.75rem
+  );
+  background-color: var(--color-scrollbar-track, #999);
+}
+
+.reel > * {
+  flex: 0 0 var(--reel-item-width, auto);
+}
+
+/* Snap to items when scrolling */
+.reel[data-snap='true'] {
+  scroll-padding-inline: var(--reel-gap, var(--space-m, 1rem));
+  scroll-snap-type: x mandatory;
+}
+
+.reel[data-snap='true'] > * {
+  scroll-snap-align: start;
+}
+
+/* No scrollbar variant */
+.reel[data-scrollbar='false'] {
+  scrollbar-width: none;
+}
+
+.reel[data-scrollbar='false']::-webkit-scrollbar {
+  display: none;
+}

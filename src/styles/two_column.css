@@ -1,54 +1,117 @@
 /* Two Column Layout */
 /* In Astro this must be set as a global style, otherwise it doesn't compile correctly */
 
-.full-width-split-screen {
+@layer base, variants;
+
+@layer base {
+  img {
+    display: block;
+  }
+  .full-width-split-screen {
     padding-block: 0;
-}
-.full-width-split-screen img {
+  }
+  .full-width-split-screen img {
     /* outline: 2px solid red; */
     object-fit: cover;
-}
+  }
 
-.full-width-split-screen > :not(img) {
+  .full-width-split-screen > :not(img) {
     padding-inline: var(--wrapper-padding-inline);
     padding-block: var(--wrapper-padding-inline);
-}
-@media (min-width: 600px) {
+  }
+
+  @media (min-width: 600px) {
     .full-width-split-screen {
-        display: grid;
-        grid-template-columns:
-            minmax(var(--wrapper-padding-inline), 1fr)
-            minmax(0, calc(var(--wrapper-max-width) / 2))
-            minmax(0, calc(var(--wrapper-max-width) / 2))
-            minmax(var(--wrapper-padding-inline), 1fr);
-        position: relative;
+      display: grid;
+      position: relative;
+      grid-template-columns:
+        minmax(var(--wrapper-padding-inline), 1fr)
+        minmax(0, calc(var(--wrapper-max-width) / 2))
+        minmax(0, calc(var(--wrapper-max-width) / 2))
+        minmax(var(--wrapper-padding-inline), 1fr);
     }
-    .full-width-split-screen > img:first-child {
-        grid-column: 1 / 3;
+    .full-width-split-screen:not(.overlay) > img:first-child {
+      grid-column: 1 / 3;
     }
-    .full-width-split-screen > img:last-child {
-        grid-column: 3 / -1;
+    .full-width-split-screen:not(.overlay) > img:last-child {
+      grid-column: 3 / -1;
     }
-    .full-width-split-screen > :not(img) {
-        display: grid;
-        align-content: start;
+    .full-width-split-screen:not(.overlay) > :not(img) {
+      display: grid;
+      align-content: start;
     }
-    .full-width-split-screen > :not(img):first-child {
-        grid-column: 2 / 3;
+    .full-width-split-screen:not(.overlay) > :not(img):first-child {
+      grid-column: 2 / 3;
     }
-    .full-width-split-screen > :not(img):last-child {
-        grid-column: 3 / 4;
+    .full-width-split-screen:not(.overlay) > :not(img):last-child {
+      grid-column: 3 / 4;
     }
-    .full-width-split-screen > :not(img)::before {
-        content: " ";
-        position: absolute;
-        inset: 0;
-        background: inherit;
+    .full-width-split-screen:not(.overlay) > :not(img)::before {
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      content: ' ';
     }
-    .full-width-split-screen > :not(img):first-child::before {
-        grid-column: 1 / 2;
+    .full-width-split-screen:not(.overlay) > :not(img):first-child::before {
+      grid-column: 1 / 2;
     }
-    .full-width-split-screen > :not(img):last-child::before {
-        grid-column: 4 / 5;
+    .full-width-split-screen:not(.overlay) > :not(img):last-child::before {
+      grid-column: 4 / 5;
     }
+  }
+}
+
+@layer variants {
+  /* Overlay variant - mobile styles */
+  .overlay {
+    display: grid;
+  }
+  .overlay > img:first-of-type {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .overlay > div:first-of-type {
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    align-content: start;
+  }
+  .overlay > img:last-of-type {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .overlay > div:last-of-type {
+    display: grid;
+    grid-row: 2;
+    grid-column: 1;
+    align-content: start;
+  }
+
+  @media (min-width: 600px) {
+    /* Overlay variant - desktop: all elements on row 1, overlaid */
+    .full-width-split-screen.overlay > img {
+      grid-row: 1;
+      height: 100%;
+    }
+    .full-width-split-screen.overlay > img:first-of-type {
+      grid-column: 1 / 3;
+    }
+    .full-width-split-screen.overlay > img:last-of-type {
+      grid-column: 3 / 5;
+    }
+    .full-width-split-screen.overlay > div {
+      display: grid;
+      grid-row: 1;
+      align-content: start;
+    }
+    .full-width-split-screen.overlay > div:first-of-type {
+      grid-column: 2 / 3;
+    }
+    .full-width-split-screen.overlay > div:last-of-type {
+      grid-column: 3 / 4;
+    }
+    .full-width-split-screen.overlay > div::before {
+      display: none;
+    }
+  }
 }

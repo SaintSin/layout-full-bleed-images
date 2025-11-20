@@ -1,0 +1,43 @@
+/*
+COVER COMPOSITION
+Vertically centers content with optional header/footer
+Based on: https://every-layout.dev/layouts/cover/
+
+CUSTOM PROPERTIES:
+--cover-gap: Space between elements (default: 1rem)
+--cover-min-height: Minimum height of cover (default: 100vh)
+--cover-padding: Internal padding (default: 1rem)
+
+USAGE:
+<div class="cover">
+  <header>Header (optional)</header>
+  <main>Centered content</main>
+  <footer>Footer (optional)</footer>
+</div>
+
+The middle child (usually main) will be vertically centered.
+Use data-centered attribute to specify which child to center.
+*/
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  padding: var(--cover-padding, 1rem);
+  min-block-size: var(--cover-min-height, 100vh);
+}
+
+.cover > * {
+  margin-block: var(--cover-gap, 1rem);
+}
+
+/* Center the principal element */
+.cover > :is(h1, h2, h3, h4, main) {
+  margin-block: auto;
+}
+
+/* Use data attribute for custom centered element */
+.cover[data-centered='1'] > :first-child,
+.cover[data-centered='2'] > :nth-child(2),
+.cover[data-centered='3'] > :nth-child(3) {
+  margin-block: auto;
+}

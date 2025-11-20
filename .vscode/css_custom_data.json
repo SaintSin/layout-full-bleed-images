@@ -1,0 +1,21 @@
+{
+  "version": 1.1,
+  "properties": [
+    {
+      "name": "--wrapper-padding-inline",
+      "description": "Inline padding for wrapper component"
+    },
+    {
+      "name": "--wrapper-max-width",
+      "description": "Maximum width for wrapper component"
+    },
+    {
+      "name": "--section-padding-block",
+      "description": "Block padding for sections"
+    },
+    {
+      "name": "--paragraph-max-width",
+      "description": "Maximum width for paragraph text"
+    }
+  ]
+}

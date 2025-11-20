@@ -1,19 +1,16 @@
 :root {
-  --color-brand: hsla(0, 1%, 34%, 0.99);
+  --gutter: var(--space-s);
+  --wrapper-max-width: 90ch;
+  --characters-max-width: 65ch;
+  --flow-space: var(--space-s-l);
 
-  --color-brand-10: hsl(241, 79%, 19%, 0.1);
-  --color-highlight: hsl(48, 80%, 70%);
+  --transition-base: 250ms ease;
+  --transition-movement: 200ms linear;
+  --transition-fade: 300ms ease;
+  --transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
 
-  --text-light: hsl(0, 0%, 100%);
-  --text-dark: hsl(0, 0%, 0%);
-  --text-link: hsl(241, 79%, 19%, 0.95);
-  --maxchars: 75ch;
-  --max-content-width: 95rem;
-  --gap: var(--space-l);
-
-  --flow-space: var(--step--1);
-
-  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --leading-standard: 1.5;
+  --leading-fine: 1.15;
 
   --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
@@ -24,8 +21,6 @@
   --step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
   --step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
   --step-6: clamp(3.3594rem, 2.8694rem + 2.45vw, 4.7681rem);
-
-  /* @link https://utopia.fyi/space/calculator?c=320,18,1.125,1140,20,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
   --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
   --space-2xs: clamp(0.56rem, calc(0.54rem + 0.12vw), 0.63rem);
@@ -50,11 +45,31 @@
   /* Custom pairs */
   --space-s-l: clamp(1.13rem, calc(0.59rem + 2.68vw), 2.5rem);
 
-  /* Breakpoints */
+  /* Pallet */
+  --indigo-dye: oklch(37.32% 0.064 258.28 / 1);
+  --paynes-gray: oklch(46.41% 0.053 229.2 / 1);
+  --magnolia: oklch(94.15% 0.008 318 / 1);
+  --ecru: oklch(61.53% 0.083 90 / 1);
+  --chamoisee: oklch(36.5% 0.054 85 / 1);
 
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
+  /* Colors */
+  --color-dark: oklch(9.7% 0 0);
+  --color-dark-glare: oklch(20.5% 0 0);
+  --color-mid: oklch(38.7% 0 0);
+  --color-mid-glare: oklch(84.5% 0 0);
+  --color-light: oklch(100% 0 0);
+  --color-light-shade: oklch(97.5% 0 0);
+  --color-primary: oklch(64% 0.278 9.295);
+  --color-primary-glare: oklch(96.7% 0.019 349);
+  --color-secondary: oklch(90% 0.17 175);
+  --color-tertiary: oklch(45.53% 0.29 272);
+  --color-quaternary: oklch(88.3% 0.18 94.5);
+  --color-quinary: oklch(80% 0.146 219);
+  --color-quinary-shade: oklch(70% 0.146 219);
+
+  --color-brand: oklch(46.41% 0.053 229.2 / 1);
 }
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */

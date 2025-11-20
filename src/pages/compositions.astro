@@ -1,0 +1,604 @@
+---
+import { Image } from 'astro:assets';
+import image1 from '@images/placeholders/cat_1.jpg';
+import image2 from '@images/placeholders/cat_2.jpg';
+import SectionSample from '@components/SectionSample.astro';
+import Layout from '@layouts/Layout.astro';
+import type { MetaData } from '@lib/index';
+
+const metaData: MetaData = {
+  title: 'CUBE CSS Compositions Demo - Layout Bleeds',
+  description:
+    'Complete demonstration of all 14 Every Layout composition primitives in action.',
+};
+---
+
+<Layout metaData={metaData}>
+  <SectionSample />
+  <!-- Cover: Hero section with vertical centering -->
+  <section
+    class="cover"
+    style="--cover-min-height: 100vh; background: var(--teal-2);"
+  >
+    <header>
+      <div class="wrapper">
+        <p style="font-size: var(--step--1); color: var(--teal-11);">
+          CUBE CSS Compositions
+        </p>
+      </div>
+    </header>
+    <div class="center flow" data-spacing="m">
+      <h1 style="font-size: var(--font-size-fluid-3); color: var(--teal-11);">
+        Every Layout Primitives
+      </h1>
+      <p style="font-size: var(--step-1); max-width: 60ch; text-align: center;">
+        A comprehensive demonstration of all 14 composition utilities for
+        scalable, maintainable layouts.
+      </p>
+    </div>
+    <footer>
+      <div class="center">
+        <p style="font-size: var(--step--1); color: var(--teal-10);">
+          ↓ Scroll to explore
+        </p>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Wrapper & Flow -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: white;"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--teal-10);">
+      1. Wrapper + Flow
+    </h2>
+    <p>
+      The <strong>wrapper</strong> constrains content width while <strong
+        >flow</strong
+      > adds consistent vertical spacing.
+    </p>
+    <div
+      style="background: var(--stone-2); padding: var(--size-3); border-left: 3px solid var(--teal-7);"
+    >
+      <code>class="wrapper flow"</code>
+    </div>
+  </section>
+
+  <!-- Center -->
+  <section
+    style="padding-block: var(--size-fluid-5); background: var(--lime-1);"
+  >
+    <div class="center flow">
+      <h2 style="font-size: var(--font-size-fluid-2); color: var(--lime-11);">
+        2. Center
+      </h2>
+      <p>
+        Horizontally centers content with a max-width constraint. Perfect for
+        readable text.
+      </p>
+      <div
+        style="background: var(--lime-3); padding: var(--size-3); border-radius: var(--radius-2);"
+      >
+        <code>class="center"</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: white;"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--teal-10);">
+      3. Grid
+    </h2>
+    <p>Responsive auto-fill grid that adapts without media queries.</p>
+
+    <div
+      class="grid"
+      style="--grid-min-item-size: 200px; --gutter: var(--size-3);"
+    >
+      <div
+        class="box"
+        style="background: var(--teal-2); padding: var(--size-4);"
+      >
+        <h3 style="font-size: var(--step-0);">Grid Item 1</h3>
+      </div>
+      <div
+        class="box"
+        style="background: var(--teal-3); padding: var(--size-4);"
+      >
+        <h3 style="font-size: var(--step-0);">Grid Item 2</h3>
+      </div>
+      <div
+        class="box"
+        style="background: var(--teal-4); padding: var(--size-4);"
+      >
+        <h3 style="font-size: var(--step-0);">Grid Item 3</h3>
+      </div>
+      <div
+        class="box"
+        style="background: var(--teal-5); padding: var(--size-4);"
+      >
+        <h3 style="font-size: var(--step-0);">Grid Item 4</h3>
+      </div>
+    </div>
+
+    <h3 style="margin-top: var(--size-5); font-size: var(--step-1);">
+      Grid 50-50 Variant
+    </h3>
+    <div class="grid" data-layout="50-50">
+      <div
+        class="box"
+        style="background: var(--lime-3); padding: var(--size-4);"
+      >
+        <p>Left column (50%)</p>
+      </div>
+      <div
+        class="box"
+        style="background: var(--lime-4); padding: var(--size-4);"
+      >
+        <p>Right column (50%)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cluster -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: var(--stone-1);"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--stone-12);">
+      4. Cluster
+    </h2>
+    <p>
+      Groups items horizontally with wrapping. Perfect for navigation and tags.
+    </p>
+
+    <nav
+      class="cluster"
+      style="--cluster-gap: var(--size-3); background: var(--stone-2); padding: var(--size-3); border-radius: var(--radius-2);"
+    >
+      <a
+        href="#"
+        style="background: var(--teal-7); color: white; padding: var(--size-2) var(--size-3); border-radius: var(--radius-2); text-decoration: none;"
+        >Home</a
+      >
+      <a
+        href="#"
+        style="background: var(--teal-7); color: white; padding: var(--size-2) var(--size-3); border-radius: var(--radius-2); text-decoration: none;"
+        >About</a
+      >
+      <a
+        href="#"
+        style="background: var(--teal-7); color: white; padding: var(--size-2) var(--size-3); border-radius: var(--radius-2); text-decoration: none;"
+        >Services</a
+      >
+      <a
+        href="#"
+        style="background: var(--teal-7); color: white; padding: var(--size-2) var(--size-3); border-radius: var(--radius-2); text-decoration: none;"
+        >Contact</a
+      >
+    </nav>
+
+    <div
+      class="cluster"
+      style="--cluster-gap: var(--size-2); margin-top: var(--size-4);"
+    >
+      <span
+        style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+        >CSS</span
+      >
+      <span
+        style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+        >Design</span
+      >
+      <span
+        style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+        >Layout</span
+      >
+      <span
+        style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+        >CUBE</span
+      >
+      <span
+        style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+        >Responsive</span
+      >
+    </div>
+  </section>
+
+  <!-- Sidebar -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: white;"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--teal-10);">
+      5. Sidebar
+    </h2>
+    <p>Flexible sidebar that switches to stack on smaller screens.</p>
+
+    <div
+      class="sidebar"
+      style="--sidebar-width: 250px; --sidebar-gap: var(--size-4);"
+    >
+      <aside
+        style="background: var(--teal-2); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <h3 style="font-size: var(--step-0);">Sidebar</h3>
+        <p style="font-size: var(--step--1);">
+          Navigation or supplementary content
+        </p>
+      </aside>
+      <main
+        style="background: var(--lime-2); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <h3 style="font-size: var(--step-0);">Main Content</h3>
+        <p>This grows to fill available space. Try resizing!</p>
+      </main>
+    </div>
+  </section>
+
+  <!-- Switcher -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: var(--lime-1);"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--lime-11);">
+      6. Switcher
+    </h2>
+    <p>
+      Container-query responsive layout that switches from horizontal to
+      vertical.
+    </p>
+
+    <div
+      class="switcher"
+      style="--switcher-threshold: 400px; --switcher-gap: var(--size-3);"
+    >
+      <div
+        style="background: var(--lime-3); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <h3 style="font-size: var(--step-0);">Item 1</h3>
+      </div>
+      <div
+        style="background: var(--lime-4); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <h3 style="font-size: var(--step-0);">Item 2</h3>
+      </div>
+      <div
+        style="background: var(--lime-5); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <h3 style="font-size: var(--step-0);">Item 3</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: white;"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--teal-10);">
+      7. Stack
+    </h2>
+    <p>Vertical layout with automatic spacing and footer pushing.</p>
+
+    <div
+      class="stack"
+      style="--stack-space: var(--size-3); min-height: 400px; background: var(--stone-2); padding: var(--size-4); border-radius: var(--radius-2);"
+    >
+      <header
+        style="background: var(--teal-3); padding: var(--size-3); border-radius: var(--radius-2);"
+      >
+        <h3 style="font-size: var(--step-0);">Header</h3>
+      </header>
+      <main
+        style="background: var(--lime-3); padding: var(--size-3); border-radius: var(--radius-2);"
+      >
+        <p>Main content area</p>
+      </main>
+      <footer
+        style="background: var(--stone-4); padding: var(--size-3); border-radius: var(--radius-2);"
+      >
+        <p style="font-size: var(--step--1);">Footer pushed to bottom</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Frame -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: var(--stone-1);"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--stone-12);">
+      8. Frame
+    </h2>
+    <p>Maintains aspect ratio for images and embedded content.</p>
+
+    <div class="grid" style="--grid-min-item-size: 250px;">
+      <div class="flow" data-spacing="s">
+        <h3 style="font-size: var(--step-0);">16:9 Ratio</h3>
+        <div class="frame" data-ratio="16:9">
+          <Image
+            src={image1}
+            format="avif"
+            quality={40}
+            alt="Cat in 16:9 frame"
+          />
+        </div>
+      </div>
+      <div class="flow" data-spacing="s">
+        <h3 style="font-size: var(--step-0);">1:1 Square</h3>
+        <div class="frame" data-ratio="1:1">
+          <Image
+            src={image2}
+            format="avif"
+            quality={40}
+            alt="Cat in square frame"
+          />
+        </div>
+      </div>
+      <div class="flow" data-spacing="s">
+        <h3 style="font-size: var(--step-0);">4:3 Ratio</h3>
+        <div class="frame" data-ratio="4:3">
+          <Image
+            src={image1}
+            format="avif"
+            quality={40}
+            alt="Cat in 4:3 frame"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reel -->
+  <section style="padding-block: var(--size-fluid-5); background: white;">
+    <div class="wrapper flow">
+      <h2 style="font-size: var(--font-size-fluid-2); color: var(--teal-10);">
+        9. Reel
+      </h2>
+      <p>Horizontal scrolling carousel with snap points.</p>
+    </div>
+
+    <div
+      class="reel"
+      data-snap="true"
+      style="--reel-item-width: 350px; --reel-gap: var(--size-4); padding-inline: var(--size-4);"
+    >
+      <article
+        style="background: var(--teal-2); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <div
+          class="frame"
+          data-ratio="16:9"
+          style="margin-bottom: var(--size-3);"
+        >
+          <Image src={image1} format="avif" quality={40} alt="Card 1" />
+        </div>
+        <h3 style="font-size: var(--step-0);">Card 1</h3>
+        <p style="font-size: var(--step--1);">
+          Scroll horizontally to see more
+        </p>
+      </article>
+      <article
+        style="background: var(--teal-3); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <div
+          class="frame"
+          data-ratio="16:9"
+          style="margin-bottom: var(--size-3);"
+        >
+          <Image src={image2} format="avif" quality={40} alt="Card 2" />
+        </div>
+        <h3 style="font-size: var(--step-0);">Card 2</h3>
+        <p style="font-size: var(--step--1);">Snaps to each item</p>
+      </article>
+      <article
+        style="background: var(--teal-4); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <div
+          class="frame"
+          data-ratio="16:9"
+          style="margin-bottom: var(--size-3);"
+        >
+          <Image src={image1} format="avif" quality={40} alt="Card 3" />
+        </div>
+        <h3 style="font-size: var(--step-0);">Card 3</h3>
+        <p style="font-size: var(--step--1);">Works on touch devices</p>
+      </article>
+      <article
+        style="background: var(--teal-5); padding: var(--size-4); border-radius: var(--radius-2);"
+      >
+        <div
+          class="frame"
+          data-ratio="16:9"
+          style="margin-bottom: var(--size-3);"
+        >
+          <Image src={image2} format="avif" quality={40} alt="Card 4" />
+        </div>
+        <h3 style="font-size: var(--step-0);">Card 4</h3>
+        <p style="font-size: var(--step--1);">No JavaScript required!</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Box -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: var(--lime-1);"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--lime-11);">
+      10. Box
+    </h2>
+    <p>Consistent padding and optional borders.</p>
+
+    <div class="grid" style="--grid-min-item-size: 200px;">
+      <div
+        class="box"
+        style="background: var(--lime-3); --box-padding: var(--size-3);"
+      >
+        <h3 style="font-size: var(--step-0);">Small Padding</h3>
+      </div>
+      <div
+        class="box"
+        style="background: var(--lime-4); --box-padding: var(--size-5);"
+      >
+        <h3 style="font-size: var(--step-0);">Large Padding</h3>
+      </div>
+      <div
+        class="box"
+        style="background: var(--lime-5); --box-padding: var(--size-4); border: 2px solid var(--lime-9);"
+      >
+        <h3 style="font-size: var(--step-0);">With Border</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Imposter (demonstration with relative positioning) -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: white;"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--teal-10);">
+      11. Imposter
+    </h2>
+    <p>Positions content over other content (overlays, modals).</p>
+
+    <div
+      class="imposter-container"
+      style="position: relative; height: 400px; background: var(--stone-3); border-radius: var(--radius-2); overflow: hidden;"
+    >
+      <Image
+        src={image1}
+        format="avif"
+        quality={40}
+        alt="Background"
+        style="width: 100%; height: 100%; object-fit: cover;"
+      />
+      <div class="imposter" data-centered="true" style="position: absolute;">
+        <div
+          class="box center"
+          style="background: rgba(255, 255, 255, 0.95); --box-padding: var(--size-5); border-radius: var(--radius-3); box-shadow: var(--shadow-4);"
+        >
+          <h3 style="font-size: var(--step-1); color: var(--teal-10);">
+            Overlay Content
+          </h3>
+          <p style="max-width: 40ch;">
+            Perfectly centered over the background image.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combining Compositions -->
+  <section
+    class="wrapper flow"
+    style="padding-block: var(--size-fluid-5); background: var(--stone-1);"
+  >
+    <h2 style="font-size: var(--font-size-fluid-2); color: var(--stone-12);">
+      12. Combining Compositions
+    </h2>
+    <p>The real power comes from composing utilities together.</p>
+
+    <div
+      class="sidebar"
+      style="--sidebar-width: 200px; background: var(--stone-2); padding: var(--size-4); border-radius: var(--radius-2);"
+    >
+      <!-- Sidebar with Stack -->
+      <aside class="stack" style="--stack-space: var(--size-3);">
+        <div class="box" style="background: var(--teal-3);">
+          <h3 style="font-size: var(--step--1);">Navigation</h3>
+        </div>
+        <div class="box" style="background: var(--teal-4);">
+          <p style="font-size: var(--step--1);">Links</p>
+        </div>
+      </aside>
+
+      <!-- Main content with Flow -->
+      <article class="flow" data-spacing="m">
+        <h3 style="font-size: var(--step-1);">Article with Flow</h3>
+        <p>Automatic spacing between elements.</p>
+
+        <!-- Nested Cluster -->
+        <div class="cluster" style="--cluster-gap: var(--size-2);">
+          <span
+            style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+            >Tag 1</span
+          >
+          <span
+            style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+            >Tag 2</span
+          >
+          <span
+            style="background: var(--lime-5); padding: var(--size-1) var(--size-2); border-radius: var(--radius-2); font-size: var(--step--1);"
+            >Tag 3</span
+          >
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section
+    class="cover"
+    style="--cover-min-height: 60vh; background: var(--teal-9);"
+  >
+    <div class="center flow" data-spacing="m">
+      <h2 style="font-size: var(--font-size-fluid-2); color: white;">
+        Build Scalable Layouts
+      </h2>
+      <p
+        style="color: var(--teal-1); font-size: var(--step-1); max-width: 60ch; text-align: center;"
+      >
+        Zero media queries. Composable. Maintainable. Based on Every Layout.
+      </p>
+      <div class="cluster" style="--cluster-justify: center;">
+        <a
+          href="/COMPOSITIONS.md"
+          style="background: white; color: var(--teal-9); padding: var(--size-3) var(--size-5); border-radius: var(--radius-2); text-decoration: none; font-weight: 600;"
+          >View Documentation</a
+        >
+        <a
+          href="/"
+          style="background: var(--teal-11); color: white; padding: var(--size-3) var(--size-5); border-radius: var(--radius-2); text-decoration: none; font-weight: 600;"
+          >Back to Home</a
+        >
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  :root {
+    --wrapper-padding-inline: var(--size-fluid-4);
+    --wrapper-max-width: 120ch;
+    --section-padding-block: var(--size-fluid-4);
+    --paragraph-max-width: 60ch;
+  }
+  * {
+    line-height: var(--font-lineheight-3);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: var(--font-lineheight-1);
+    font-family: var(--font-sans);
+    text-wrap: balance;
+  }
+
+  p {
+    max-width: 65ch;
+    text-wrap: pretty;
+  }
+
+  code {
+    font-size: var(--step--1);
+    font-family: var(--font-mono);
+  }
+</style>

@@ -9,30 +9,17 @@ import type { MetaData } from '@lib/index';
 import '@styles/two_column.css';
 
 const metaData: MetaData = {
-  title: 'Full Bleed Images - Layout Bleeds Demo',
+  title: 'Animated Split-Screen - Layout Bleeds Demo',
   description:
-    'Demonstration of full-bleed split-screen layouts with responsive images that resize to match content height.',
+    'Split-screen layout with scroll-triggered animations using Motion library.',
 };
 ---
 
 <Layout metaData={metaData}>
-  <section class="page">
-    <h1>Full Bleed Images Two Column</h1>
-    <p class="txt-center">
-      Images are resized to cover the height of the parent element.<br />
-      Scroll down
-    </p>
-    <!-- <p>
-      Based on
-      <a href="https://www.youtube.com/watch?v=Ivk8Blw2VTI" target="_blank">
-      this technique by Kevin Powell
-      </a>.
-    </p> -->
-  </section>
-
-  <section class="full-width-split-screen">
-    <div class="primary">
-      <h2>A Picture 1</h2>
+  <section class="full-width-split-screen | primary">
+    <div class="fade-left">
+      <h2>Fit Image To Row Height</h2>
+      <h3>Padding for text on rhs needs fixing</h3>
       <p>
         Sunt nisi aute pariatur labore tempor magna dolore eu. Cillum pariatur
         anim commodo sint exercitation sint velit. Veniam dolore magna enim
@@ -50,16 +37,24 @@ const metaData: MetaData = {
         consequat quis voluptate. Commodo ut ad pariatur duis sunt velit veniam
         minim.
       </p>
+      <Image
+        src={image1}
+        quality={10}
+        alt="Cat lying down staring at camera"
+        loading={'eager'}
+        layout="full-width"
+      />
     </div>
     <Image
       src={image1}
       quality={40}
       alt="Cat lying down staring at camera"
+      loading={'eager'}
       layout="full-width"
     />
   </section>
 
-  <section class="full-width-split-screen">
+  <section class="full-width-split-screen | secondary">
     <Image
       src={image2}
       quality={40}
@@ -67,7 +62,7 @@ const metaData: MetaData = {
       loading={'eager'}
       layout="full-width"
     />
-    <div class="secondary">
+    <div>
       <h2>A Picture 2</h2>
       <p>
         Et esse laborum minim occaecat minim dolor nulla elit officia ut ea id.
@@ -84,22 +79,12 @@ const metaData: MetaData = {
         consequat quis voluptate. Commodo ut ad pariatur duis sunt velit veniam
         minim.
       </p>
-
-      <p>
-        Do sunt ex do veniam consectetur enim. Ex ut irure excepteur dolor duis
-        et mollit amet proident velit cupidatat proident in eiusmod. Aliqua
-        aliquip mollit sit nisi amet reprehenderit Lorem eiusmod magna occaecat
-        magna. Duis amet aliquip dolore dolore voluptate consectetur. Deserunt
-        commodo do laboris elit culpa sint ut. Deserunt reprehenderit ex
-        pariatur deserunt aute laborum reprehenderit aliquip aliqua excepteur ut
-        enim nisi.
-      </p>
     </div>
   </section>
 
-  <section class="full-width-split-screen">
-    <div class="tertiary">
-      <h2>A Picture 3</h2><p>
+  <section class="full-width-split-screen | tertiary">
+    <div class="fade-left">
+      <h2>Another Picture of Meancing Cats Picture 3</h2><p>
         Elit dolor voluptate cupidatat labore qui adipisicing cillum. Proident
         dolore ad magna anim nulla aliqua veniam. Deserunt deserunt eiusmod in
         do labore dolore anim. Ea esse mollit est in dolor qui cillum amet
@@ -122,17 +107,18 @@ const metaData: MetaData = {
         minim.
       </p>
     </div>
-    <Image src={image3} quality={40} alt="Playful cats" />
+    <Image src={image3} quality={40} layout="full-width" alt="Playful cats" />
   </section>
 
-  <section class="full-width-split-screen">
+  <section class="full-width-split-screen | quaternary">
     <Image
       src={image4}
       quality={40}
-      alt="Ginger kitten in grassy field"
       layout="full-width"
+      alt="Ginger kitten in grassy field"
+      class="fade-left"
     />
-    <div class="quaternary">
+    <div class="fade-right">
       <h2>A Picture 4</h2>
       <p>
         Et esse laborum minim occaecat minim dolor nulla elit officia ut ea id.
@@ -160,35 +146,36 @@ const metaData: MetaData = {
       </p>
     </div>
   </section>
-  <section class="full-width-split-screen">
+  <section class="full-width-split-screen | primary">
     <Image
       src={image3}
       quality={40}
       layout="full-width"
       alt="Mice run away from this duo"
+      class="fade-left"
     />
     <Image
       src={image4}
       quality={40}
       layout="full-width"
       alt="Ginger kitten in grassy field"
+      class="fade-right"
     />
   </section>
-  <section class="full-width-split-screen">
-    <div class="quaternary">
-      <h3>First Columnn</h3>
+  <section class="full-width-split-screen primary">
+    <div class="fade-up">
+      <h3>First Item</h3>
       <p>
         Dolor laborum eu ullamco fugiat labore eiusmod qui excepteur minim aute
         laboris dolore sit labore. Mollit pariatur nisi tempor est minim ipsum.
         Eiusmod veniam nostrud veniam dolore.
-      </p>
-      <p>
+      </p><p>
         Deserunt minim aliquip commodo et deserunt labore. Nisi pariatur culpa
         minim id voluptate aute mollit tempor magna.
       </p>
     </div>
-    <div class="primary">
-      <h3>Second Column</h3>
+    <div class="fade-up">
+      <h3>Second Item</h3>
       <p>
         Dolor laborum eu ullamco fugiat labore eiusmod qui excepteur minim aute
         laboris dolore sit labore. Mollit pariatur nisi tempor est minim ipsum.
@@ -223,84 +210,59 @@ const metaData: MetaData = {
       mollit culpa excepteur nisi in do. Nisi dolore officia labore ullamco.
     </p>
   </section>
-  <section class="full-width-split-screen overlay">
+  <section class="full-width-split-screen | primary">
     <Image
       src={image3}
       quality={40}
       layout="full-width"
       alt="Mice run away from this duo"
+      class="fade-left"
     />
-    <div>
-      <h2>Overlay</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eum,
-        culpa totam molestias blanditiis maiores asperiores, consectetur animi,
-        doloribus facilis inventore ducimus atque sequi expedita temporibus
-        ratione. Facilis, esse ipsam. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Illum, quaerat voluptatibus placeat deleniti ipsum
-        nostrum non odio fuga mollitia! Repellat, qui esse. Doloremque autem et
-        fuga. Corporis molestias modi voluptate.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eum,
-        culpa totam molestias blanditiis maiores asperiores, consectetur animi,
-        doloribus facilis inventore ducimus atque sequi expedita temporibus
-        ratione. Facilis, esse ipsam. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Illum, quaerat voluptatibus placeat deleniti ipsum
-        nostrum non odio fuga mollitia! Repellat, qui esse. Doloremque autem et
-        fuga. Corporis molestias modi voluptate.
-      </p>
-    </div>
     <Image
       src={image4}
       quality={40}
       layout="full-width"
       alt="Ginger kitten in grassy field"
+      class="fade-right"
     />
-    <div>
-      <h2>Overlay 2A</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eum,
-        culpa totam molestias blanditiis maiores asperiores, consectetur animi,
-        doloribus facilis inventore ducimus atque sequi expedita temporibus
-        ratione. Facilis, esse ipsam.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eum,
-        culpa totam molestias blanditiis maiores asperiores, consectetur animi,
-        doloribus facilis inventore ducimus atque sequi expedita temporibus
-        ratione. Facilis, esse ipsam.
-      </p>
-    </div>
   </section>
 </Layout>
 <style>
+  /* OKLCH Gradient Designer */
+  /* https://gradient.style/ */
   :root {
     --wrapper-padding-inline: var(--size-fluid-4);
-    --wrapper-max-width: 120ch;
+    --wrapper-max-width: 95ch;
     --section-padding-block: var(--size-fluid-4);
-    --paragraph-max-width: 55ch;
+    --paragraph-max-width: 69ch;
   }
   * {
     line-height: var(--font-lineheight-3);
     /* outline: solid 1px red; */
     font-family: var(--font-sans);
   }
+  h1,
+  h2,
+  h3 {
+    font-weight: var(--font-weight-6);
+    line-height: var(--font-lineheight-0);
+    font-family: var(--font-neo-grotesque);
+    text-wrap: balance;
+  }
   h1 {
     color: var(--teal-10);
     font-size: var(--font-size-fluid-3);
-    font-family: var(--font-serif);
   }
   h2 {
     font-weight: 500;
     font-size: var(--font-size-fluid-2);
-    font-family: var(--font-serif);
   }
   p {
     margin-top: var(--space-s);
     max-width: var(--paragraph-max-width);
     color: var(--gray-11);
     font-size: var(--step-0);
+    text-wrap: pretty;
   }
   .lede {
     font-weight: 600;
@@ -316,7 +278,16 @@ const metaData: MetaData = {
     background: var(--teal-4);
   }
   .quaternary {
-    background: var(--lime-4);
+    background-image: linear-gradient(
+      to top in oklch,
+      oklch(58% 0.5 340) 5% 5%,
+      75%,
+      oklch(90% 0.5 10) 100% 100%
+    );
+    color: var(--stone-0);
+    p {
+      color: var(--stone-0);
+    }
   }
   .page {
     display: grid;
@@ -335,5 +306,59 @@ const metaData: MetaData = {
     margin-inline: auto;
     text-align: center;
   }
+  img {
+    border: 0;
+    border-radius: calc(var(--size-fluid-4) * 2);
+    padding: var(--size-fluid-4);
+    overflow: hidden;
+  }
+  .fade-left,
+  .fade-right,
+  .fade-up {
+    opacity: 0;
+  }
 </style>
 <script src="@scripts/image-sizes.ts"></script>
+<script>
+  import { animate, inView, easeInOut } from 'motion';
+
+  function initAnimations() {
+    inView('.fade-left', (element) => {
+      animate(
+        element,
+        { opacity: [0, 1], x: [-250, 0] },
+        {
+          ease: [0.39, 0.24, 0.3, 1],
+          duration: 1,
+        },
+      );
+    });
+    inView('.fade-right', (element) => {
+      animate(
+        element,
+        { opacity: [0, 1], x: [250, 0] },
+        {
+          ease: [0.39, 0.24, 0.3, 1],
+          duration: 1,
+        },
+      );
+    });
+    inView('.fade-up', (element) => {
+      animate(
+        element,
+        { opacity: [0, 1], y: [250, 0] },
+        {
+          ease: easeInOut,
+          duration: 0.5,
+          delay: 0.2,
+        },
+      );
+    });
+  }
+  // Initialize on load
+  initAnimations();
+
+  // Reinitialize after Astro transitions
+  document.addEventListener('astro:page-load', initAnimations);
+  document.addEventListener('astro:after-swap', initAnimations);
+</script>
