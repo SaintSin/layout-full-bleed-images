@@ -5,7 +5,10 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   site: 'http://localhost:4321',
-  experimental: {},
+  experimental: { svgo: true },
+  image: {
+    responsiveStyles: true,
+  },
   prefetch: true,
   integrations: [
     sitemap(),
